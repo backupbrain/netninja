@@ -56,7 +56,7 @@ if ($postdata) {
 		
 		if ($continue) {
 			`sudo ../../scripts/wifi_client/disable.sh`;
-			`sudo ../../scripts/wifi_client/configure_wifi.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
+			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
 			`sudo ../../scripts/wifi_client/enable.sh`;
 			// give a response
 			$response = "";
