@@ -62,12 +62,23 @@ if ($postdata) {
 			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
 			`sudo ../../scripts/wifi_client/enable.sh`;
 			
+			
+
+			$is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
+			$is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
+			$service = "none";
+			if ($is_tor_running) $service = "tor";
+			if ($is_vpn_running) $service = "private";
+			
+			
 			// restart routing
 			if ($service == "tor") {
+				`sudo ../../scripts/disable_vpn_tor.sh`;
 				`sudo ../../scripts/tor/enable.sh --interface=$internal_interface`;
 
 			} else if ($service == "private") {
-			`sudo ../../scripts/vpn/enable.sh --interface=$internal_interface`;
+				`sudo ../../scripts/disable_vpn_tor.sh`;
+				`sudo ../../scripts/vpn/enable.sh --interface=$internal_interface`;
 
 			} else {
 				// determine our working network interface
