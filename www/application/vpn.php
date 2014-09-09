@@ -48,6 +48,7 @@ if ($postdata) {
 	
 
 	if ($service == "tor") {
+		`sudo ../../scripts/disable_vpn_tor.sh`;
 		`sudo ../../scripts/tor/enable.sh --interface=$internal_interface`;
 		$response = "";
 		success_response($response);

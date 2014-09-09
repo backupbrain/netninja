@@ -4,6 +4,9 @@ require_once("common.php");
 
 $source = "internet";
 
+$internal_interface="wlan1";
+$external_interface="eth0";
+
 $authorized = true;
 
 $postdata = null;
@@ -58,6 +61,24 @@ if ($postdata) {
 			`sudo ../../scripts/wifi_client/disable.sh`;
 			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
 			`sudo ../../scripts/wifi_client/enable.sh`;
+			
+			// restart routing
+			if ($service == "tor") {
+				`sudo ../../scripts/tor/enable.sh --interface=$internal_interface`;
+
+			} else if ($service == "private") {
+			`sudo ../../scripts/vpn/enable.sh --interface=$internal_interface`;
+
+			} else {
+				// determine our working network interface
+				$wlan0_exists = intval(`sudo ../scripts/interface_exists --interface=wlan0`);
+				$external_interface="eth0";
+				if ($wlan0_exists) {
+					$external_interface="wlan0";
+				}
+				`sudo ../../scripts/disable_vpn_tor.sh --internal_interface=$internal_interface --external_interface=$external_interface`;
+			}
+			
 			// give a response
 			$response = "";
 			success_response($response);
