@@ -19,7 +19,7 @@ function has_wifi {
 
 
 
-	if [ "$result" = "$testString" ];then
+	if [ "$result" == "$testString" ];then
 		has_wifi_result=0
 	else
 		has_wifi_result=1
