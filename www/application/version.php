@@ -19,7 +19,7 @@ if (!check_login()) {
 }
 	
 $response = array(
-	'version' => get_setting($version_file, 'version');
+	'version' => get_setting($version_file, 'version')
 );
 
 ?>
