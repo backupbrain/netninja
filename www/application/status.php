@@ -70,6 +70,7 @@ foreach (array_keys($external_interfaces) as $interface) {
 			
 		}
 	}
+	$external_interfaces[$interface] = $interface_status;
 	
 }
 
@@ -106,6 +107,8 @@ foreach (array_keys($internal_interfaces) as $interface) {
 			$interface_status['encryption'] = `../../scripts/report_setting.sh --file=$hostapd_file --setting=wpa_pairwise`;
 		}
 	}
+
+	$internal_interfaces[$interface] = $interface_status;
 
 }
 
