@@ -47,7 +47,7 @@ foreach (array_keys($external_interfaces) as $interface) {
 
 	$interface_status["connected"] = false;
 	$interface_status["type"] = 'ethernet';
-	$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`);
+	$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`;
 	
 	$is_wifi = intval(`../../scripts/is_wifi.sh --interface=$interface`);
 	
@@ -80,6 +80,7 @@ foreach (array_keys($internal_interfaces) as $interface) {
 	
 	$interface_status["type"] = "wireless"
 	$isup = intval(`../../scripts/interface_exists.sh --interface=$interface`);
+	$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`;
 
 	if ($isup == 1) {
 		$interface_status["connected"] = true;
@@ -91,7 +92,6 @@ foreach (array_keys($internal_interfaces) as $interface) {
 		if ($is_wifi) {
 			$interface_status["type"] = "wireless";
 			$interface_status["ssid"] = `../../scripts/get_live_ssid.sh --interface=$interface`;
-			$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`);
 			$interface_status["channel"] = `../../scripts/get_live_ap_channel.sh --interface=$interface`;
 			
 
