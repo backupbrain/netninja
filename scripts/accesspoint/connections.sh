@@ -9,9 +9,10 @@ function show_help {
 	echo 'Usage: '$me' --interface=<inet interface>'
 }
 
-function device_ip {
+# http://stackoverflow.com/a/246523
+function list_connections {
 	local interface=$1
-	ip addr show dev $interface | sed -nr 's/.*inet ([^ /]+).*/\1/p'
+	arp | awk '/'$interface'$/ {print $1,$3}' | sed 's/:[[:digit:]]\+$//'
 }
 
 
@@ -34,6 +35,6 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-device_ip $interface
+list_connections $interface
 
 

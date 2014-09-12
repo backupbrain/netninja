@@ -148,6 +148,7 @@ In /etc/hostapd/hostapd.conf, change:
 interface=wlan1
 ssid=myroutername
 wpa_passphrase=mySecurePassword
+ignore_broadcast_ssid=0
 
 $ sudo service hostapd start
 $ sudo update-rc.d hostapd enable 

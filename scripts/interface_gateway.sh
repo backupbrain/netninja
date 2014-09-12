@@ -9,9 +9,10 @@ function show_help {
 	echo 'Usage: '$me' --interface=<inet interface>'
 }
 
-function device_ip {
+function device_gateway {
 	local interface=$1
-	ip addr show dev $interface | sed -nr 's/.*inet ([^ /]+).*/\1/p'
+	route -n |awk '/^(0.0.0.0)/ {print $0}'| awk '/'$interface'$/ {print $2}'
+	
 }
 
 
@@ -34,6 +35,6 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-device_ip $interface
+device_gateway $interface
 
 
