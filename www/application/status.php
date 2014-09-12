@@ -112,7 +112,7 @@ foreach (array_keys($internal_interfaces) as $interface) {
 	$response = array(
 		"wan" => $external_interfaces,
 		"lan" => $internal_interfaces,
-		"services" = $services
+		"services" => $services
 	);
 	
 	success_response($response);
