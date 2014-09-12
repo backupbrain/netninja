@@ -22,4 +22,6 @@ $response = array(
 	'version' => get_setting($version_file, 'version')
 );
 
+success_response($response);
+
 ?>
