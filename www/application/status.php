@@ -107,15 +107,15 @@ foreach (array_keys($internal_interfaces) as $interface) {
 		}
 	}
 
+}
 
+$response = array(
+	"wan" => $external_interfaces,
+	"lan" => $internal_interfaces,
+	"services" => $services
+);
 
-	$response = array(
-		"wan" => $external_interfaces,
-		"lan" => $internal_interfaces,
-		"services" => $services
-	);
-	
-	success_response($response);
+success_response($response);
 
 
 
