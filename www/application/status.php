@@ -78,7 +78,7 @@ foreach (array_keys($external_interfaces) as $interface) {
 foreach (array_keys($internal_interfaces) as $interface) {
 	$interface_status = $internal_interfaces[$interface];
 	
-	$interface_status["type"] = "wireless"
+	$interface_status["type"] = "wireless";
 	$isup = intval(`../../scripts/interface_exists.sh --interface=$interface`);
 	$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`;
 
