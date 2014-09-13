@@ -42,7 +42,9 @@ function login($username, $hashed_password) {
 	$_SESSION['username'] = $username;
 	$_SESSION['login_string'] = $login_string;
 	$_SESSION["HTTP_USER_AGENT"] = $_SERVER['HTTP_USER_AGENT'];
-	$_SESSION["HTTP_X_FORWARDED_FOR"] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$_SESSION["HTTP_X_FORWARDED_FOR"] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	}
 	$_SESSION["REMOTE_ADDR"] = $_SERVER['REMOTE_ADDR'];
 
 	// drop a cookie
@@ -64,7 +66,11 @@ function check_login() {
 	if ($_SERVER['HTTP_USER_AGENT'] != $_SESSION["HTTP_USER_AGENT"]) {
 		$logged_in = false;
 	}
-	
+
+	if (
+		isset($_SERVER['HTTP_X_FORWARDED_FOR']) or
+		isset($_SESSION["HTTP_X_FORWARDED_FOR"])
+		) {
 	if ($_SERVER['HTTP_X_FORWARDED_FOR'] != $_SESSION["HTTP_X_FORWARDED_FOR"]) {
 		$logged_in = false;
 	}
