@@ -13,13 +13,15 @@ function has_wifi {
 	local interface=$1
 
 	has_wifi_result=0
-	local testString="$interface:\tno wireless extensions.\n"
+	
+	# this message is routed to stderr so we don't have to test for it
+	local testString="$interface:      no wireless extensions.\n"
 
 	local result=$(/sbin/iwconfig $interface)
 
 
 
-	if [ "$result" == "$testString" ];then
+	if [[ -n "$result" ]];then
 		has_wifi_result=0
 	else
 		has_wifi_result=1
