@@ -63,7 +63,7 @@ foreach (array_keys($external_interfaces) as $interface) {
 		$interface_status["address"] = `../../scripts/interface_ip.sh --interface=$interface`;
 		$interface_status["gateway"] = `../../scripts/interface_gateway.sh --interface=$interface`;
 		
-		$interface_status["command"] = "../../scripts/interface_ip.sh --interface=$interface";
+		$interface_status["command"] = "../../scripts/interface_gateway.sh --interface=$interface";
 	
 		if ($is_wifi) {
 			$interface_status["ssid"] = `../../scripts/get_live_ssid.sh --interface=$interface`;
