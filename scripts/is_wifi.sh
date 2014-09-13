@@ -13,7 +13,7 @@ function has_wifi {
 	local interface=$1
 
 	has_wifi_result=0
-	local testString="$interface:      no wireless extensions."
+	local testString="$interface:      no wireless extensions.\n"
 
 	local result=$(/sbin/iwconfig $interface)
 
