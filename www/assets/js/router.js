@@ -106,10 +106,39 @@ function updateStatus() {
 		if (result == "success") {
 			success["status"] = true;
 			
+			$(".start_hidden").hide();
+			
 			response = data.response;
 			
 			$("#internet_connected").text(response.internet_connected);
+			$("#firmware_version").text(response.firmware_version);
 			
+			wan = response.wan;
+			for (iface in wan) {
+				for (property in response.wan[iface]) {
+					elementId = "#"+iface+"_"+property;
+					element = $(elementId);
+					if (element.length) {
+						$("#"+iface+"_"+property+"_value").text(response.wan[iface][property]);
+						element.show();
+					}
+			}
+
+			for (iface in lan) {
+				for (property in response.lan[iface]) {
+					elementId = "#"+iface+"_"+property;
+					element = $(elementId);
+					if (element.length) {
+						$("#"+iface+"_"+property+"_value").text(response.lan[iface][property]);
+						element.show();
+					}
+			}
+			
+			
+			for (service in services) {
+				elementId = "#"+service+"_settings";
+				$(elementId).show();
+			}
 			
 			
 			notify_success(data);
@@ -127,6 +156,10 @@ function updateStatus() {
 
 function savesettings() {
 	clear_messages();
+	
+	if (changes.length <= 0) {
+		updateStatus();
+	}
 	
 	if (changes["internet"]) {
 		saveInternet();

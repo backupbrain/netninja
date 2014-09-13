@@ -4,6 +4,7 @@ if (!check_login()) {
 	header("Location: /");
 }
 
+$firmware_version = get_setting('application/'.$version_file, 'version');
 
 $wifi_ssid =  `../scripts/wifi_client/get_ssid.sh`;
 $wifi_password =  ""; //`../scripts/wifi_client/get_password.sh`;
@@ -90,21 +91,18 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav" id="navtab">
 				<li class="active">
+					<a data-toggle="tab" href="#tab-status">Status</a>
+				</li>
+				<li class="active">
 					<a data-toggle="tab" href="#tab-internet">Internet</a>
 				</li>
-
-
 				<li>
 					<a data-toggle="tab" href="#tab-accesspoint">Access
 					Point</a>
 				</li>
-
-
 				<li>
 					<a data-toggle="tab" href="#tab-vpn">VPN</a>
 				</li>
-
-
 				<li>
 					<a data-toggle="tab" href="#tab-security">Security</a>
 				</li>
@@ -169,22 +167,25 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 								</thead>
 								<tbody>
 									<tr>
-										<td>Status</td>
+										<td>Connected</td>
 										<td id="eth0_connected_value">loading...</td>
 									</tr>
 									<tr>
 										<td>Type</td>
 										<td id="eth0_type_value">loading...</td>
+									</tr>
 									<tr>
 										<td>MAC Address</td>
 										<td id="eth0_mac_value">loading...</td>
-									</tr>
+									</tr>>
 									<tr id="eth0_address" class="start_hidden">
 										<td>IP Address</td>
 										<td id="eth0_address_value">loading...</td>
+									</tr>
 									<tr id="eth0_gateway" class="start_hidden">
 										<td>Gateway</td>
 										<td id="eth0_gateway_value">loading...</td>
+									</tr>
 									<tr id="eth0_gateway" class="start_hidden">
 										<td>Gateway</td>
 										<td id="eth0_gateway_value">loading...</td>
@@ -207,21 +208,25 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 								</thead>
 								<tbody>
 									<tr>
-										<td>Status</td>
+										<td>Connected</td>
 										<td id="wlan0_connected_value">loading...</td>
 									</tr>
 									<tr>
 										<td>Type</td>
 										<td id="wlan0_type_value">loading...</td>
+									</tr>
 									<tr id="wlan0_ssid" class="start_hidden">
 										<td>Access Point Name</td>
 										<td id="wlan0_ssid_value">loading...</td>
+									</tr>
 									<tr id="wlan0_bssid" class="start_hidden">
 										<td>Access Point MAC</td>
 										<td id="wlan0_bssid_value">loading...</td>
+									</tr>
 									<tr id="wlan0_channel" class="start_hidden">
 										<td>Access Point Channel</td>
 										<td id="wlan0_channel_value">loading...</td>
+									</tr>
 									<tr>
 										<td>MAC Address</td>
 										<td id="wlan0_mac_value">loading...</td>
@@ -229,9 +234,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 									<tr id="wlan0_address" class="start_hidden">
 										<td>IP Address</td>
 										<td id="wlan0_address_value">loading...</td>
-									<tr id="wlan0_gateway" class="start_hidden">
-										<td>Gateway</td>
-										<td id="wlan0_gateway_value">loading...</td>
+									</tr>
 									<tr id="wlan0_gateway" class="start_hidden">
 										<td>Gateway</td>
 										<td id="wlan0_gateway_value">loading...</td>
@@ -241,11 +244,61 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					    </div>
 
 						
-						<h3>VPN</h3>
-						- any services enabled?
-						- tor enabled?
-						- vpn enabled?
-							- vpn settings
+						
+						<div id="tor_settings" class="start_hidden">
+							<h3>TOR</h3>
+						    <div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan="2">TOR</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Connected</td>
+											<td id="vpn_type_status">loading...</td>
+										</tr>
+									</tbody>
+								</table>
+						    </div>
+						</div>
+						
+						<div id="vpn_settings" class="start_hidden">
+							<h3>VPN</h3>
+						    <div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan="2">VPN</th>
+										</tr>
+										<tr>
+											<th>Setting</th>
+											<th>Value</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Connected</td>
+											<td id="tun0_connected_value">loading...</td>
+										</tr>
+										<tr>
+											<td>Type</td>
+											<td id="tun0_type_value">loading...</td>
+										</tr>
+										<tr id="tun0_address" class="start_hidden">
+											<td>IP Address</td>
+											<td id="tun0_address_value">loading...</td>
+										</tr>
+										<tr id="tun0_gateway" class="start_hidden">
+											<td>Gateway</td>
+											<td id="tun0_gateway_value">loading...</td>
+										</tr>
+									</tbody>
+								</table>
+						    </div>
+						</div>
+						
 					</div>
 					<div class="content-secondary">
 						<h3>Router</h3>
@@ -307,28 +360,8 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					</div>
 				</div>
 
-				<div class="input-group">
-					<label for="wifi_enabled"><input id="wifi_enabled" name="enablewifi" type="checkbox" value="1" <?php if ($wifi_on) {?>checked="true" <?php } ?>> Connect to the internet using
-					WiFi</label>
-				</div>
 
 
-				<div id="wifi-group" style="display:none">
-					<div class="input-group">
-						<input id="client_wifi_ssid" class="form-control" placeholder=
-						"SSID/Network Name" value="<?= addslashes($wifi_ssid); ?>" type="text">
-					<div id="error-client_wifi_ssid" class="input-error">Not a valid network name</div>
-					</div>
-
-
-					<div class="input-group">
-						<input id="client_wifi_password" class="form-control" placeholder="password"
-						value="<?= addslashes($wifi_password); ?>" type="password">
-					<div id="error-client_wifi_password" class="input-error">Not a valid password</div>
-					</div>
-					
-
-				</div>
 			</div>
 			
 			
