@@ -45,8 +45,6 @@ if [ "$hidden" == "false" ]; then
 else if [ "$hidden" == "true" ]; then
 	setting=$SETTING_EMPTY
 	continue=true
-else
-	error_unknown_argument
 fi
 
 if $continue; then
