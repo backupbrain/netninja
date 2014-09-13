@@ -122,7 +122,7 @@ function success_response($response=null) {
 	if ($response) {
 		$output["response"] = $response;
 	}
-	$json_response = json_encode($output, JSON_PRETTY_PRINT);
+	$json_response = json_encode($output);
 	echo($json_response);
 }
 
