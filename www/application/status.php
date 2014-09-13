@@ -98,7 +98,7 @@ foreach (array_keys($internal_interfaces) as $interface) {
 			
 
 			$interface_status['hidden'] = false;
-			$is_hidden = `../../scripts/report_setting.sh --file=$hostapd_file --setting=ignore_broadcast_ssid`;
+			$is_hidden = intval(`../../scripts/report_setting.sh --file=$hostapd_file --setting=ignore_broadcast_ssid`);
 			if ($is_hidden) {
 				$interface_status['hidden'] = true;
 			}
