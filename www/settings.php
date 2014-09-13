@@ -47,8 +47,6 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 	
 	<link href="assets/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel=
 	"stylesheet">
-	<link href="assets/bootstrap-3.1.1-dist/css/grid.css" rel=
-	"stylesheet">
 	<link href="assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel=
 	"stylesheet">
 	<script src="assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
