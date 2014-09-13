@@ -133,7 +133,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 
 				<div class="wrapper">
-					<div class="content-main .col-xs-6 .col-md-4">
+					<div class="content-main col-xs-6 col-md-4">
 						<h3>Internet</h3>
 						
 
@@ -294,7 +294,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						</div>
 						
 					</div>
-					<div class="content-secondary .col-xs-6 .col-md-4">
+					<div class="content-secondary col-xs-6 col-md-4">
 						<h3>Router</h3>
 						
 
