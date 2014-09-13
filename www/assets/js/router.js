@@ -152,6 +152,19 @@ function updateStatus() {
 				$(elementId).show();
 			}
 			
+			accesspoint_clients = response.accesspoint_clients;
+			num_clients = accesspoint_clients.length;
+			$("#accesspoint_client_number_value").text(num_clients);
+
+			$('#maccess_point_clients > tbody').html("");
+			for (macaddress in accesspoint_clients) {
+				mac_cell = $("<td/>").text(macaddress);
+				ip_cell = $("<td/>").text(accesspoint_clients[macaddress]);
+				row = $("<tr/>");
+				row.append(mac_cell);
+				row.append(ip_cell);
+				$('#maccess_point_clients > tbody:last').append(row);
+			}
 			
 			
 		} else if (result == "warning"){
