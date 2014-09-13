@@ -90,7 +90,7 @@ $( document ).ready(function() {
 		changes[key] =true;
 	});
 	
-	$('#navtab a[href="#internet"]').tab('show') // Select tab by name
+	$('#navtab a[href="#status"]').tab('show') // Select tab by name
 	
 	updateStatus();
 });
@@ -98,7 +98,7 @@ $( document ).ready(function() {
 
 function updateStatus() {
 
-	post_url = "application/internet.php";
+	post_url = "application/status.php";
 	
 	$.ajax( post_url ).done(function(data) {
 		console.log(data);
