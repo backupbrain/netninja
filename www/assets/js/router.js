@@ -156,7 +156,7 @@ function updateStatus() {
 			num_clients = accesspoint_clients.length;
 			$("#accesspoint_client_number_value").text(num_clients);
 
-			$('#maccess_point_clients > tbody').html("");
+			$('#access_point_clients > tbody').html("");
 			for (index in accesspoint_clients) {
 				mac = accesspoint_clients[index].mac;
 				ip = accesspoint_clients[index].ip;
@@ -165,7 +165,7 @@ function updateStatus() {
 				row = $("<tr/>");
 				row.append(mac_cell);
 				row.append(ip_cell);
-				$('#maccess_point_clients > tbody:last').append(row);
+				$('#access_point_clients > tbody').append(row);
 			}
 			$("#access_point_clients").show();
 			

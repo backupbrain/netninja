@@ -364,7 +364,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 								<tbody>
 									<tr>
 										<td>Current Connections</td>
-										<td id="acesspoint_client_number_value">loading...</td>
+										<td id="accesspoint_client_number_value">loading...</td>
 									</tr>
 								</tbody>
 							</table>
