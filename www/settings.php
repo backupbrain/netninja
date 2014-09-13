@@ -17,8 +17,8 @@ $accesspoint_password = `../scripts/report_setting.sh --file=/etc/hostapd/hostap
 
 
 
-$is_tor_running = intval(`sudo ../../scripts/service_exists.sh --service=tor`);
-$is_vpn_running = intval(`sudo ../../scripts/service_exists.sh --service=openvpn`);
+$is_tor_running = intval(`sudo ../scripts/service_exists.sh --service=tor`);
+$is_vpn_running = intval(`sudo ../scripts/service_exists.sh --service=openvpn`);
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) $services[] = "vpn";
