@@ -71,8 +71,9 @@ function check_login() {
 		isset($_SERVER['HTTP_X_FORWARDED_FOR']) or
 		isset($_SESSION["HTTP_X_FORWARDED_FOR"])
 		) {
-	if ($_SERVER['HTTP_X_FORWARDED_FOR'] != $_SESSION["HTTP_X_FORWARDED_FOR"]) {
-		$logged_in = false;
+			if ($_SERVER['HTTP_X_FORWARDED_FOR'] != $_SESSION["HTTP_X_FORWARDED_FOR"]) {
+			$logged_in = false;
+		}
 	}
 	
 	if ($_SERVER['REMOTE_ADDR'] != $_SESSION["REMOTE_ADDR"]) {
