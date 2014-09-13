@@ -123,6 +123,7 @@ foreach (array_keys($internal_interfaces) as $interface) {
 
 $accesspoint_clients = array();
 $raw_connection_text = rtrim(`../../scripts/accesspoint/connections.sh --interface=wlan1`,"\n");
+echo($raw_connection_text);
 $raw_connection_list = split($raw_connection_text, "\n");
 foreach ($raw_connection_list as $raw_connection_pair) {
 	$raw_connection = split($raw_connection_pair, " ");
