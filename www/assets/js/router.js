@@ -153,6 +153,7 @@ function updateStatus() {
 			}
 			
 			
+			
 		} else if (result == "warning"){
 			notify_warning(data);
 		} else {

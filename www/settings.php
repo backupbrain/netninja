@@ -19,8 +19,8 @@ $accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/
 
 
 
-$is_tor_running = intval(`sudo ../scripts/service_exists.sh --service=tor`);
-$is_vpn_running = intval(`sudo ../scripts/service_exists.sh --service=openvpn`);
+$is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
+$is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) $services[] = "vpn";
@@ -293,7 +293,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						    </div>
 						</div>
 						
-					</div>
+					</div><!-- #content-main -->
 					<div class="content-secondary col-xs-6 col-md-4">
 						<h3>Router</h3>
 						
@@ -351,8 +351,44 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						
 						
 						
-					</div>
-				</div>
+					</div><!-- #content-secondary -->
+					
+					
+
+					<div class="content-tertiary col-xs-6 col-md-4">
+						<h3>Clients</h3>
+						
+
+					    <div id="access_point_client_number" class="table-responsive">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Current Connections</td>
+										<td id="acesspoint_client_number_value">loading...</td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+						
+
+					    <div id="access_point_clients" class="table-responsive start_hidden">
+							<table id="" class="table table-bordered">
+								<thead>
+									<tr>
+										<th>MAC Address</th>
+										<th>IP Address</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+					    </div>
+						
+						
+						
+					</div><!-- #content-secondary -->
+					
+				</div><!-- #wrapper -->
 
 
 

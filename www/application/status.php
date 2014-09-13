@@ -14,8 +14,8 @@ $external_interfaces = array(
 $internet_connected = false;
 $firmware_version = get_setting($version_file, 'version');
 
-$is_tor_running = intval(`sudo ../../scripts/service_exists.sh --service=tor`);
-$is_vpn_running = intval(`sudo ../../scripts/service_exists.sh --service=openvpn`);
+$is_tor_running = intval(`../../scripts/service_exists.sh --service=tor`);
+$is_vpn_running = intval(`../../scripts/service_exists.sh --service=openvpn`);
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) {
@@ -121,11 +121,22 @@ foreach (array_keys($internal_interfaces) as $interface) {
 
 }
 
+$accesspoint_clients = array();
+$raw_connection_text = rtrim(`../../scripts/accesspoint/connections.sh --interface=wlan1`,"\n");
+$raw_connection_list = split($raw_connection_text, "\n");
+foreach ($raw_connection_list as $raw_connection_pair) {
+	$raw_connection = split($raw_connection_pair, " ");
+	$macaddress = $raw_connection[0];
+	$ipaddress = $raw_connection[1];
+	$accesspoint_clients[$macaddress] = $ipaddress;
+}
+
 $response = array(
 	"firmware_version" => $firmware_version,
 	"internet_connected" => $internet_connected,
 	"wan" => $external_interfaces,
 	"lan" => $internal_interfaces,
+	"accesspoint_clients" => $accesspoint_clients,
 	"services" => $services
 );
 
