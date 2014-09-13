@@ -39,14 +39,8 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-if [ "$hidden" == "false" ]; then
-	setting=$SETTING_VISIBLE
-	continue=true
+echo "hello"
 
-	sed -i "s/^\($config_setting=\).*\$/\1$setting/" /etc/hostapd/hostapd.conf
-else if [ "$hidden" == "true" ]; then
-	setting=$SETTING_EMPTY
-	continue=true
 
-	sed -i "s/^\($config_setting=\).*\$/\1$setting/" /etc/hostapd/hostapd.conf
-fi
+
+
