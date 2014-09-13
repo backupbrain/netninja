@@ -14,7 +14,7 @@ function show_help {
 function report_config {
 	local config_file=$1
 	local config_setting=$2
-	config_result=`sed -n '/^'$config_setting'=\(.*\)$/s//\1/p' < $config_file` | tr -d '\n'
+	config_result=`sed -n '/^'$config_setting'=\(.*\)$/s//\1/p' < $config_file`
 }
 
 

@@ -45,6 +45,7 @@ foreach (array_keys($external_interfaces) as $interface) {
 	$interface_status = $external_interfaces[$interface];
 	
 
+	$interface_status["interface"] = $interface;
 	$interface_status["connected"] = false;
 	$interface_status["type"] = 'ethernet';
 	$interface_status["mac"] = `../../scripts/interface_mac.sh --interface=$interface`;
