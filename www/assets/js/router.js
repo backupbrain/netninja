@@ -104,6 +104,8 @@ function updateStatus() {
 		console.log(data);
 
 		result = data.result
+
+		console.log(result);
 		if (result == "success") {
 			success["status"] = true;
 			
