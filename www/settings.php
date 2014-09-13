@@ -542,7 +542,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 		</div>
 
 
-		<div>&nbsp;</div>
+		<div class="clear">&nbsp;</div>
 		<div class="input-group">
 			<button class="btn btn-success" type="button" id="savesettings">Save Router
 			Settings</button>
