@@ -92,6 +92,7 @@ $( document ).ready(function() {
 	
 	$('#navtab a[href="#internet"]').tab('show') // Select tab by name
 	
+	updateStatus();
 });
 
 
