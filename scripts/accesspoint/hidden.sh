@@ -39,12 +39,14 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-echo "hello"
-
-setting=$SETTING_VISIBLE
-if [ "$hidden" == "true" ]; then
+if [ "$hidden" == "false" ]; then
+	setting=$SETTING_VISIBLE
+	continue=true
+elif [ "$hidden" == "true" ]; then
 	setting=$SETTING_EMPTY
 	continue=true
+else
+	error_unknown_argument
 fi
 
 
