@@ -95,6 +95,36 @@ $( document ).ready(function() {
 });
 
 
+function updateStatus() {
+
+	post_url = "application/internet.php";
+	
+	$.ajax( post_url ).done(function(data) {
+		console.log(data);
+
+		result = data.result
+		if (result == "success") {
+			success["status"] = true;
+			
+			response = data.response;
+			
+			$("#internet_connected").text(response.internet_connected);
+			
+			
+			
+			notify_success(data);
+		} else if (result == "warning"){
+			notify_warning(data);
+		} else {
+			success["status"] = false;
+			notify_error(data);
+		}
+		$( ".result" ).html( data );
+		
+	});
+}
+
+
 function savesettings() {
 	clear_messages();
 	

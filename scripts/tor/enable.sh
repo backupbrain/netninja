@@ -43,6 +43,8 @@ function tor_routing {
 	sudo iptables -A FORWARD -i $local_interface -o tun0 -j ACCEPT
 
 	sh -c "iptables-save > /etc/iptables.ipv4.nat"
+	
+	service ntp restart
 }
 
 

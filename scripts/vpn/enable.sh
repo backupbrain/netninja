@@ -43,6 +43,9 @@ function vpn_routing {
 	iptables -A FORWARD -i tun0 -o $local_interface -m state --state RELATED,ESTABLISHED -j ACCEPT
 	iptables -A FORWARD -i $local_interface -o tun0 -j ACCEPT
 	sh -c "iptables-save > /etc/iptables.ipv4.nat"
+	
+	
+	service ntp restart
 }
 
 

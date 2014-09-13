@@ -45,6 +45,8 @@ function local_routing {
 	iptables -A FORWARD -i $local_interface -o $external_interface -j ACCEPT
 
 	sh -c "iptables-save > /etc/iptables.ipv4.nat"
+	
+	service ntp restart
 }
 
 

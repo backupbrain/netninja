@@ -136,10 +136,110 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<div class="content-main">
 						<h3>Internet</h3>
 						
-						- internet connected?
-						
-						- eth0 settings
-						- wlan0 settings
+
+
+					    <div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th colspan="2">Internet</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Connected</td>
+										<td id="internet_connected">loading...</td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+
+
+
+					    <div id="ethernet_settings" class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th colspan="2">Ethernet</th>
+									</tr>
+									<tr>
+										<th>Setting</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Status</td>
+										<td id="eth0_connected_value">loading...</td>
+									</tr>
+									<tr>
+										<td>Type</td>
+										<td id="eth0_type_value">loading...</td>
+									<tr>
+										<td>MAC Address</td>
+										<td id="eth0_mac_value">loading...</td>
+									</tr>
+									<tr id="eth0_address" class="start_hidden">
+										<td>IP Address</td>
+										<td id="eth0_address_value">loading...</td>
+									<tr id="eth0_gateway" class="start_hidden">
+										<td>Gateway</td>
+										<td id="eth0_gateway_value">loading...</td>
+									<tr id="eth0_gateway" class="start_hidden">
+										<td>Gateway</td>
+										<td id="eth0_gateway_value">loading...</td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+
+
+					    <div id="wifi_settings" class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th colspan="2">Wifi</th>
+									</tr>
+									<tr>
+										<th>Setting</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Status</td>
+										<td id="wlan0_connected_value">loading...</td>
+									</tr>
+									<tr>
+										<td>Type</td>
+										<td id="wlan0_type_value">loading...</td>
+									<tr id="wlan0_ssid" class="start_hidden">
+										<td>Access Point Name</td>
+										<td id="wlan0_ssid_value">loading...</td>
+									<tr id="wlan0_bssid" class="start_hidden">
+										<td>Access Point MAC</td>
+										<td id="wlan0_bssid_value">loading...</td>
+									<tr id="wlan0_channel" class="start_hidden">
+										<td>Access Point Channel</td>
+										<td id="wlan0_channel_value">loading...</td>
+									<tr>
+										<td>MAC Address</td>
+										<td id="wlan0_mac_value">loading...</td>
+									</tr>
+									<tr id="wlan0_address" class="start_hidden">
+										<td>IP Address</td>
+										<td id="wlan0_address_value">loading...</td>
+									<tr id="wlan0_gateway" class="start_hidden">
+										<td>Gateway</td>
+										<td id="wlan0_gateway_value">loading...</td>
+									<tr id="wlan0_gateway" class="start_hidden">
+										<td>Gateway</td>
+										<td id="wlan0_gateway_value">loading...</td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+
 						
 						<h3>VPN</h3>
 						- any services enabled?
@@ -149,10 +249,61 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					</div>
 					<div class="content-secondary">
 						<h3>Router</h3>
-						- firmware version
+						
+
+					    <div id="ethernet_settings" class="table-responsive">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Version</td>
+										<td id="firmware_version"><?php echo $firmware_version; ?></td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+						
 						
 				  		<h3>Access Point</h3>
-						- access point settings
+						
+
+					    <div id="access_point_settings" class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Setting</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Type</td>
+										<td id="wlan1_type_value">loading...</td>
+									<tr id="wlan1_ssid">
+										<td>Access Point Name</td>
+										<td id="wlan1_ssid_value">loading...</td>
+									<tr id="wlan1_channel">
+										<td>Access Point Channel</td>
+										<td id="wlan1_channel_value">loading...</td>
+									<tr>
+										<td>MAC Address</td>
+										<td id="wlan1_mac_value">loading...</td>
+									</tr>
+									<tr id="wlan1_address">
+										<td>IP Address</td>
+										<td id="wlan1_address_value">loading...</td>
+									<tr id="wlan1_hidden">
+										<td>Hidden</td>
+										<td id="wlan1_hidden_value">loading...</td>
+									<tr id="wlan1_encryption">
+										<td>Encryption</td>
+										<td id="wlan1_encryption_value">loading...</td>
+									</tr>
+								</tbody>
+							</table>
+					    </div>
+						
+						
+						
 					</div>
 				</div>
 
