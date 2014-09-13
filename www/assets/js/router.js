@@ -120,10 +120,11 @@ function updateStatus() {
 			for (iface in wan) {
 				for (property in response.wan[iface]) {
 					elementId = "#"+iface+"_"+property;
-					console.log("#"+iface+"_"+property+"_value"+": "+response.wan[iface][property]);
 					element = $(elementId);
+
+					$("#"+iface+"_"+property+"_value").text(response.wan[iface][property]);
+					
 					if (element.length) {
-						$("#"+iface+"_"+property+"_value").text(response.wan[iface][property]);
 						element.show();
 					}
 				}
@@ -134,8 +135,10 @@ function updateStatus() {
 				for (property in response.lan[iface]) {
 					elementId = "#"+iface+"_"+property;
 					element = $(elementId);
+
+					$("#"+iface+"_"+property+"_value").text(response.lan[iface][property]);
+					
 					if (element.length) {
-						$("#"+iface+"_"+property+"_value").text(response.lan[iface][property]);
 						element.show();
 					}
 				}
