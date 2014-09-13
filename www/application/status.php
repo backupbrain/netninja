@@ -124,7 +124,6 @@ foreach (array_keys($internal_interfaces) as $interface) {
 $accesspoint_clients = array();
 $raw_connection_text = rtrim(`sudo ../../scripts/accesspoint/connections.sh --interface=wlan1`,"\n");
 $raw_connection_list = explode("\n", $raw_connection_text);
-print_r($raw_connection_list);
 foreach ($raw_connection_list as $raw_connection_pair) {
 	$raw_connection = explode(" ", $raw_connection_pair);
 	$macaddress = $raw_connection[0];
