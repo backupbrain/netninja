@@ -42,7 +42,7 @@ shift $((OPTIND-1))
 if [ "$hidden" == "false"]; then
 	setting=$SETTING_VISIBLE
 	continue=true
-else if [ "$hidden" == "true"]; then
+else if [ "$hidden" == "true" ]; then
 	setting=$SETTING_EMPTY
 	continue=true
 else
