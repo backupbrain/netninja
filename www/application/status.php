@@ -57,6 +57,9 @@ foreach (array_keys($external_interfaces) as $interface) {
 		$interface_status["type"] = "wireless";
 		$interface_status["ssid"] = false;
 	}
+	if ($interface == "vpn") {
+		unset($interface_status["type"]);
+	}
 	
 	$isup = intval(`../../scripts/interface_exists.sh --interface=$interface`);
 	if ($isup == 1) {

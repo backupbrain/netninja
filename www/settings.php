@@ -278,10 +278,6 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 											<td>Connected</td>
 											<td id="tun0_connected_value">loading...</td>
 										</tr>
-										<tr>
-											<td>Type</td>
-											<td id="tun0_type_value">loading...</td>
-										</tr>
 										<tr id="tun0_address" class="start_hidden">
 											<td>IP Address</td>
 											<td id="tun0_address_value">loading...</td>
