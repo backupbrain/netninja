@@ -39,6 +39,7 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
+
 if [ "$hidden" == "false" ]; then
 	setting=$SETTING_VISIBLE
 	continue=true
@@ -51,4 +52,5 @@ fi
 
 
 
+sed -i "s/^\($config_setting=\).*\$/\1$setting/" /etc/hostapd/hostapd.conf
 
