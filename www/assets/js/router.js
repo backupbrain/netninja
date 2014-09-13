@@ -127,7 +127,8 @@ function updateStatus() {
 					}
 				}
 			}
-
+			
+			wan = response.lan;
 			for (iface in lan) {
 				for (property in response.lan[iface]) {
 					elementId = "#"+iface+"_"+property;
@@ -140,6 +141,7 @@ function updateStatus() {
 			}
 			
 			
+			services = response.services;
 			for (service in services) {
 				elementId = "#"+service+"_settings";
 				$(elementId).show();
