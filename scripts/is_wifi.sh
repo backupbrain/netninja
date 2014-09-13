@@ -20,8 +20,9 @@ function has_wifi {
 	local result=$(/sbin/iwconfig $interface)
 
 
-
-	if [[ -n "$result" ]];then
+	# check for null string:
+	# http://timmurphy.org/2010/05/19/checking-for-empty-string-in-bash/
+	if [[ -z "$result" ]];then
 		has_wifi_result=0
 	else
 		has_wifi_result=1
