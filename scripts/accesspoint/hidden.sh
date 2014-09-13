@@ -41,15 +41,10 @@ shift $((OPTIND-1))
 
 echo "hello"
 
-
-if [ "$hidden" == "false" ]; then
-	setting=$SETTING_VISIBLE
-	continue=true
-else if [ "$hidden" == "true" ]; then
+setting=$SETTING_VISIBLE
+if [ "$hidden" == "true" ]; then
 	setting=$SETTING_EMPTY
 	continue=true
-else
-	error_unknown_argument
 fi
 
 
