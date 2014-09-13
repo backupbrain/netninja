@@ -11,7 +11,7 @@ function show_help {
 
 function device_ip {
 	local interface=$1
-	ip addr show dev $interface | sed -nr 's/.*inet ([^ /]+).*/\1/p'
+	ip addr show dev $interface | sed -nr 's/.*inet ([^ /]+).*/\1/p' | tr -d '\n'
 }
 
 

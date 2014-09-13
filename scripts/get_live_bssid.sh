@@ -12,7 +12,7 @@ function show_help {
 # http://stackoverflow.com/a/246523
 function device_mac {
 	local interface=$1
-	iwgetid $interface -r -c
+	iwgetid $interface -r -c | tr -d '\n'
 }
 
 

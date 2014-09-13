@@ -12,7 +12,7 @@ function show_help {
 # http://stackoverflow.com/a/246523
 function device_mac {
 	local interface=$1
-	ip link show $interface | awk '/ether/ {print $2}'
+	ip link show $interface | awk '/ether/ {print $2}' | tr -d '\n'
 }
 
 
