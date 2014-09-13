@@ -39,7 +39,7 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-if [ "$hidden" == "false"]; then
+if [ "$hidden" == "false" ]; then
 	setting=$SETTING_VISIBLE
 	continue=true
 else if [ "$hidden" == "true" ]; then
