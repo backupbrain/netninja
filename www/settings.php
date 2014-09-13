@@ -32,6 +32,7 @@ $vpn_username = `../scripts/vpn/get_auth_setting.sh --setting=username`;
 $vpn_password = ""; //`../scripts/vpn/get_auth_setting.sh --setting=password`;
 $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +86,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 			data-toggle="collapse" type="button"><span class="sr-only">Toggle
 			navigation</span> <span class="icon-bar"></span> <span class=
 			"icon-bar"></span> <span class="icon-bar"></span></button>
-			<a class="navbar-brand" href="#tab-status">Router Admin</a>
+			<a class="navbar-brand" href="/">Router Admin</a>
 		</div>
 
 
@@ -132,7 +133,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 
 				<div class="wrapper">
-					<div class="content-main">
+					<div class="content-main .col-xs-6 .col-md-4">
 						<h3>Internet</h3>
 						
 
@@ -293,7 +294,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						</div>
 						
 					</div>
-					<div class="content-secondary">
+					<div class="content-secondary .col-xs-6 .col-md-4">
 						<h3>Router</h3>
 						
 
@@ -325,10 +326,10 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 										<td>Type</td>
 										<td id="wlan1_type_value">loading...</td>
 									<tr id="wlan1_ssid">
-										<td>Access Point Name</td>
+										<td>Name</td>
 										<td id="wlan1_ssid_value">loading...</td>
 									<tr id="wlan1_channel">
-										<td>Access Point Channel</td>
+										<td>Channel</td>
 										<td id="wlan1_channel_value">loading...</td>
 									<tr>
 										<td>MAC Address</td>

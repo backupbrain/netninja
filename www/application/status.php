@@ -63,8 +63,10 @@ foreach (array_keys($external_interfaces) as $interface) {
 	
 	$isup = intval(`../../scripts/interface_exists.sh --interface=$interface`);
 	if ($isup == 1) {
-		$internet_connected = true;
-		
+		// vpn does not count as an internet connection
+		if ($interface != "tun0") {
+			$internet_connected = true;
+		}
 		$interface_status["connected"] = true;
 		$interface_status["address"] = `../../scripts/interface_ip.sh --interface=$interface`;
 		$interface_status["gateway"] = `sudo ../../scripts/interface_gateway.sh --interface=$interface`;
