@@ -215,10 +215,9 @@ function saveInternet() {
 			notify_error(data);
 		}
 		$( ".result" ).html( data );
+		updateStatus();
 	}, 'json');
 	
-
-	updateStatus();
 	
 }
 
@@ -251,10 +250,10 @@ function saveAccesspoint() {
 			notify_error(data);
 		}
 		$( ".result" ).html( data );
+		updateStatus();
 	}, 'json');
 	
 
-	updateStatus();
 	
 }
 
@@ -303,10 +302,9 @@ function saveVPN() {
 			notify_error(data);
 		}
 		$( ".result" ).html( data );
+		updateStatus();
 	}, 'json');
 	
-
-	updateStatus();
 	
 }
 
