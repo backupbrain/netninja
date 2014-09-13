@@ -99,7 +99,7 @@ function success_response($response=null) {
 	if ($response) {
 		$output["response"] = $response;
 	}
-	$json_response = json_encode($output);
+	$json_response = json_encode($output, JSON_PRETTY_PRINT);
 	echo($json_response);
 }
 
