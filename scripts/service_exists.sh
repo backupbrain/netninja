@@ -44,4 +44,4 @@ shift $((OPTIND-1))
 
 check_service $service
 
-echo $check_service_return
+echo $check_service_return | tr -d '\n'
