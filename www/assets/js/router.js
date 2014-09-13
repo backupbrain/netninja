@@ -157,9 +157,11 @@ function updateStatus() {
 			$("#accesspoint_client_number_value").text(num_clients);
 
 			$('#maccess_point_clients > tbody').html("");
-			for (macaddress in accesspoint_clients) {
-				mac_cell = $("<td/>").text(macaddress);
-				ip_cell = $("<td/>").text(accesspoint_clients[macaddress]);
+			for (index in accesspoint_clients) {
+				mac = accesspoint_clients[index].mac;
+				ip = accesspoint_clients[index].ip;
+				mac_cell = $("<td/>").text(mac);
+				ip_cell = $("<td/>").text(ip);
 				row = $("<tr/>");
 				row.append(mac_cell);
 				row.append(ip_cell);

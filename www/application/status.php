@@ -129,7 +129,7 @@ foreach ($raw_connection_list as $raw_connection_pair) {
 	$raw_connection = explode(" ", $raw_connection_pair);
 	$macaddress = $raw_connection[0];
 	$ipaddress = $raw_connection[1];
-	$accesspoint_clients[$macaddress] = $ipaddress;
+	$accesspoint_clients[] = array('mac' => $macaddress, 'ip' =>$ipaddress);
 }
 
 $response = array(
