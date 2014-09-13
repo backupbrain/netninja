@@ -41,6 +41,9 @@ function login($username, $hashed_password) {
 	$login_string = md5($username.$hashed_password);
 	$_SESSION['username'] = $username;
 	$_SESSION['login_string'] = $login_string;
+	$_SESSION["HTTP_USER_AGENT"] = $_SERVER['HTTP_USER_AGENT'];
+	$_SESSION["HTTP_X_FORWARDED_FOR"] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	$_SESSION["REMOTE_ADDR"] = $_SERVER['REMOTE_ADDR'];
 
 	// drop a cookie
 	/*
@@ -57,6 +60,19 @@ function check_login() {
 	if (!isset($_SESSION['login_string']) or !$_SESSION['login_string']) {
 		$logged_in = false;
 	}
+	
+	if ($_SERVER['HTTP_USER_AGENT'] != $_SESSION["HTTP_USER_AGENT"]) {
+		$logged_in = false;
+	}
+	
+	if ($_SERVER['HTTP_X_FORWARDED_FOR'] != $_SESSION["HTTP_X_FORWARDED_FOR"]) {
+		$logged_in = false;
+	}
+	
+	if ($_SERVER['REMOTE_ADDR'] != $_SESSION["REMOTE_ADDR"]) {
+		$logged_in = false;
+	}
+	
 	/*
 	// read cookie parameters
 	$username = $_COOKIE['username'];
@@ -79,7 +95,7 @@ function check_login() {
 
 function logout() {
 	session_unset();
-
+	session_destroy();
 	/*
 	// http://stackoverflow.com/a/2310591
 	$cookies = explode(';', $_SERVER['HTTP_COOKIE']);

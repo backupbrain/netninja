@@ -16,7 +16,6 @@ $is_vpn_running = intval(`sudo ../../scripts/service_exists.sh --service=openvpn
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) {
-	echo("VPN IS RUNNING");
 	$services[] = "vpn";
 	$external_interfaces['tun0'] = null;
 }
