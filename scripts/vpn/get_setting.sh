@@ -54,4 +54,4 @@ shift $((OPTIND-1))
 
 report_config $config_setting
 
-echo $config_result
+echo $config_result | tr -d '\n'

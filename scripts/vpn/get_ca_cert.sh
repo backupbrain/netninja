@@ -2,6 +2,6 @@
 
 config_file="/etc/openvpn/ca.crt"
 
-cat $config_file
+cat $config_file 
 
 

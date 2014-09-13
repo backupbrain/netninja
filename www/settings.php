@@ -5,29 +5,29 @@ if (!check_login()) {
 }
 
 
-$wifi_ssid =  rtrim(`../scripts/wifi_client/get_ssid.sh`,"\n");
-$wifi_password =  rtrim(`../scripts/wifi_client/get_password.sh`,"\n");
+$wifi_ssid =  `../scripts/wifi_client/get_ssid.sh`;
+$wifi_password =  `../scripts/wifi_client/get_password.sh`;
 
 $wifi_on = intval(`../scripts/interface_exists.sh --interface=wlan0`);
 
 
 
-$accesspoint_ssid = rtrim(`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`,"\n");
-$accesspoint_password = rtrim(`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`,"\n");
+$accesspoint_ssid = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`;
+$accesspoint_password = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
 
 
 
-$is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
-$is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
+$is_tor_running = intval(`sudo ../scripts/service_exists.sh --service=tor`);
+$is_vpn_running = intval(`sudo ../scripts/service_exists.sh --service=openvpn`);
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) $services[] = "vpn";
 
-$vpn_server = rtrim(`../scripts/vpn/get_setting.sh --setting=server`,"\n");
-$vpn_port = rtrim(`../scripts/vpn/get_setting.sh --setting=port`,"\n");
-$vpn_protocol = rtrim(`../scripts/vpn/get_setting.sh --setting=proto`,"\n");
-$vpn_username = rtrim(`../scripts/vpn/get_auth_setting.sh --setting=username`,"\n");
-$vpn_password = rtrim(`../scripts/vpn/get_auth_setting.sh --setting=password`,"\n");
+$vpn_server = `../scripts/vpn/get_setting.sh --setting=server`;
+$vpn_port = `../scripts/vpn/get_setting.sh --setting=port`;
+$vpn_protocol = `../scripts/vpn/get_setting.sh --setting=proto`;
+$vpn_username = `../scripts/vpn/get_auth_setting.sh --setting=username`;
+$vpn_password = `../scripts/vpn/get_auth_setting.sh --setting=password`;
 $vpn_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 ?>

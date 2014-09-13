@@ -47,4 +47,4 @@ shift $((OPTIND-1))
 
 check_interface_exists $interface
 
-echo $check_interface_exists_result
+echo $check_interface_exists_result | tr -d "\n"

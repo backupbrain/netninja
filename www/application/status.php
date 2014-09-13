@@ -11,8 +11,8 @@ $external_interfaces = array(
 	'wlan0' => null
 );
 
-$is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
-$is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
+$is_tor_running = intval(`sudo ../scripts/service_exists.sh --service=tor`);
+$is_vpn_running = intval(`sudo ../scripts/service_exists.sh --service=openvpn`);
 $services = array();
 if ($is_tor_running) $services[] = "tor";
 if ($is_vpn_running) {
