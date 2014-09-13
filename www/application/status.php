@@ -11,6 +11,9 @@ $external_interfaces = array(
 	'wlan0' => null
 );
 
+$internet_connected = false;
+$firmware_version = get_setting($version_file, 'version');
+
 $is_tor_running = intval(`sudo ../../scripts/service_exists.sh --service=tor`);
 $is_vpn_running = intval(`sudo ../../scripts/service_exists.sh --service=openvpn`);
 $services = array();
@@ -57,6 +60,8 @@ foreach (array_keys($external_interfaces) as $interface) {
 	
 	$isup = intval(`../../scripts/interface_exists.sh --interface=$interface`);
 	if ($isup == 1) {
+		$internet_connected = true;
+		
 		$interface_status["connected"] = true;
 		$interface_status["address"] = `../../scripts/interface_ip.sh --interface=$interface`;
 		$interface_status["gateway"] = `sudo ../../scripts/interface_gateway.sh --interface=$interface`;
@@ -112,6 +117,8 @@ foreach (array_keys($internal_interfaces) as $interface) {
 }
 
 $response = array(
+	"firmware_version" = $firmware_version,
+	"internet_connected" = $internet_connected,
 	"wan" => $external_interfaces,
 	"lan" => $internal_interfaces,
 	"services" => $services

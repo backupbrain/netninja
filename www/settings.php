@@ -6,14 +6,14 @@ if (!check_login()) {
 
 
 $wifi_ssid =  `../scripts/wifi_client/get_ssid.sh`;
-$wifi_password =  `../scripts/wifi_client/get_password.sh`;
+$wifi_password =  ""; //`../scripts/wifi_client/get_password.sh`;
 
 $wifi_on = intval(`../scripts/interface_exists.sh --interface=wlan0`);
 
 
 
 $accesspoint_ssid = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`;
-$accesspoint_password = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
+$accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
 
 
 
@@ -27,8 +27,8 @@ $vpn_server = `../scripts/vpn/get_setting.sh --setting=server`;
 $vpn_port = `../scripts/vpn/get_setting.sh --setting=port`;
 $vpn_protocol = `../scripts/vpn/get_setting.sh --setting=proto`;
 $vpn_username = `../scripts/vpn/get_auth_setting.sh --setting=username`;
-$vpn_password = `../scripts/vpn/get_auth_setting.sh --setting=password`;
-$vpn_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
+$vpn_password = ""; //`../scripts/vpn/get_auth_setting.sh --setting=password`;
+$vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 ?>
 <!DOCTYPE html>
@@ -83,7 +83,7 @@ $vpn_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 			data-toggle="collapse" type="button"><span class="sr-only">Toggle
 			navigation</span> <span class="icon-bar"></span> <span class=
 			"icon-bar"></span> <span class="icon-bar"></span></button>
-			<a class="navbar-brand" href="#">Router Admin</a>
+			<a class="navbar-brand" href="#tab-status">Router Admin</a>
 		</div>
 
 
@@ -126,7 +126,62 @@ $vpn_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 
 		<div class="tab-content">
-			<div class="tab-pane active" id="tab-internet">
+			
+
+			<div class="tab-pane active" id="tab-status">
+				<h2>Status</h2>
+
+
+				<div class="wrapper">
+					<div class="content-main">
+						<h3>Internet</h3>
+						
+						- internet connected?
+						
+						- eth0 settings
+						- wlan0 settings
+						
+						<h3>VPN</h3>
+						- any services enabled?
+						- tor enabled?
+						- vpn enabled?
+							- vpn settings
+					</div>
+					<div class="content-secondary">
+						<h3>Router</h3>
+						- firmware version
+						
+				  		<h3>Access Point</h3>
+						- access point settings
+					</div>
+				</div>
+
+				<div class="input-group">
+					<label for="wifi_enabled"><input id="wifi_enabled" name="enablewifi" type="checkbox" value="1" <?php if ($wifi_on) {?>checked="true" <?php } ?>> Connect to the internet using
+					WiFi</label>
+				</div>
+
+
+				<div id="wifi-group" style="display:none">
+					<div class="input-group">
+						<input id="client_wifi_ssid" class="form-control" placeholder=
+						"SSID/Network Name" value="<?= addslashes($wifi_ssid); ?>" type="text">
+					<div id="error-client_wifi_ssid" class="input-error">Not a valid network name</div>
+					</div>
+
+
+					<div class="input-group">
+						<input id="client_wifi_password" class="form-control" placeholder="password"
+						value="<?= addslashes($wifi_password); ?>" type="password">
+					<div id="error-client_wifi_password" class="input-error">Not a valid password</div>
+					</div>
+					
+
+				</div>
+			</div>
+			
+			
+			<div class="tab-pane" id="tab-internet">
 				<h2>Internet Settings</h2>
 
 
