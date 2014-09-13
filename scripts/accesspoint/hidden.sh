@@ -49,7 +49,7 @@ else
 	error_unknown_argument
 fi
 
-if [[$continue == true]]; then
+if $continue; then
 	sed -i "s/^\($config_setting=\).*\$/\1$setting/" /etc/hostapd/hostapd.conf
 fi
 
