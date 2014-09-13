@@ -91,8 +91,8 @@ foreach (array_keys($internal_interfaces) as $interface) {
 
 		if ($is_wifi) {
 			$interface_status["type"] = "wireless";
-			$interface_status["ssid"] = `../../scripts/get_live_ssid.sh --interface=$interface`;
-			$interface_status["channel"] = `../../scripts/get_live_ap_channel.sh --interface=$interface`;
+			$interface_status["ssid"] = `sudo ../../scripts/get_live_ssid.sh --interface=$interface`;
+			$interface_status["channel"] = `sudo ../../scripts/get_live_ap_channel.sh --interface=$interface`;
 			
 
 			
