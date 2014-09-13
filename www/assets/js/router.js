@@ -100,7 +100,7 @@ function updateStatus() {
 
 	post_url = "application/status.php";
 	
-	$.ajax( post_url ).done(function(data) {
+	$.getJSON( post_url, "", function(data) {
 		console.log(data);
 
 		result = data.result
@@ -337,14 +337,16 @@ function savePassword() {
 function notify_error(data) {
 	$("#pendingchange_banner").hide();
 	$("#error_banner").show();
-	formErrors = data.response.errors
-	if (formErrors["unauthorized"] == true) {
-		document.location.href = "/";
-		return;
+	if (data.response.length) {
+		formErrors = data.response.errors
+		if (formErrors["unauthorized"] == true) {
+			document.location.href = "/";
+			return;
+		}
+		for (formError in formErrors) {
+			$("#error-"+formError).show();
+		}	
 	}
-	for (formError in formErrors) {
-		$("#error-"+formError).show();
-	}	
 }
 function notify_success(data) {
 	ready = true;
