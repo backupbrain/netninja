@@ -11,7 +11,7 @@ function show_help {
 
 function device_gateway {
 	local interface=$1
-	route -n |awk '/^(0.0.0.0)/ {print $0}'| awk '/'$interface'$/ {print $2}'
+	route -n |awk '/^(0.0.0.0)/ {print $0}'| awk '/'$interface'$/ {print $2}' | tr -d '\n'
 	
 }
 
