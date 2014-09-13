@@ -128,7 +128,7 @@ function updateStatus() {
 				}
 			}
 			
-			wan = response.lan;
+			lan = response.lan;
 			for (iface in lan) {
 				for (property in response.lan[iface]) {
 					elementId = "#"+iface+"_"+property;
