@@ -122,6 +122,7 @@ function updateStatus() {
 						$("#"+iface+"_"+property+"_value").text(response.wan[iface][property]);
 						element.show();
 					}
+				}
 			}
 
 			for (iface in lan) {
@@ -132,6 +133,7 @@ function updateStatus() {
 						$("#"+iface+"_"+property+"_value").text(response.lan[iface][property]);
 						element.show();
 					}
+				}
 			}
 			
 			
