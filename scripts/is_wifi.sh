@@ -49,4 +49,4 @@ shift $((OPTIND-1))
 
 has_wifi $interface
 
-echo $has_wifi_result
+echo $has_wifi_result | tr -d "\n"
