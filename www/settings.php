@@ -93,7 +93,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<li class="active">
 					<a data-toggle="tab" href="#tab-status">Status</a>
 				</li>
-				<li class="active">
+				<li>
 					<a data-toggle="tab" href="#tab-internet">Internet</a>
 				</li>
 				<li>
@@ -181,10 +181,6 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 									<tr id="eth0_address" class="start_hidden">
 										<td>IP Address</td>
 										<td id="eth0_address_value">loading...</td>
-									</tr>
-									<tr id="eth0_gateway" class="start_hidden">
-										<td>Gateway</td>
-										<td id="eth0_gateway_value">loading...</td>
 									</tr>
 									<tr id="eth0_gateway" class="start_hidden">
 										<td>Gateway</td>
