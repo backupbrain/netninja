@@ -120,6 +120,7 @@ function updateStatus() {
 			for (iface in wan) {
 				for (property in response.wan[iface]) {
 					elementId = "#"+iface+"_"+property;
+					console.log(elementId+": "+response.wan.iface.property);
 					element = $(elementId);
 					if (element.length) {
 						$("#"+iface+"_"+property+"_value").text(response.wan[iface][property]);
