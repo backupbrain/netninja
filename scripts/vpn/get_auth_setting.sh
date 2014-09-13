@@ -47,6 +47,6 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-report_config $config_setting | tr -d "\n"
+report_config $config_setting 
 
-echo $config_result
+echo $config_result | tr -d "\n"
