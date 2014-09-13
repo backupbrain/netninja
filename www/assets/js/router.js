@@ -146,7 +146,8 @@ function updateStatus() {
 			
 			
 			services = response.services;
-			for (service in services) {
+			for (serviceId in services) {
+				service = services[serviceId];
 				elementId = "#"+service+"_settings";
 				$(elementId).show();
 			}
