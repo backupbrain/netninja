@@ -217,17 +217,22 @@ function saveInternet() {
 		$( ".result" ).html( data );
 	}, 'json');
 	
+
+	updateStatus();
+	
 }
 
 function saveAccesspoint() {
 	notify_pending_change();
 	
 	ssid = $("#accesspoint_wifi_ssid").val();
+	is_hidden = $("#accesspoint_hidden").is(":checked");
 	password = $("#accesspoint_wifi_password").val();
 	
 
 	formdata = {
 		"ssid": ssid,
+		"is_hidden": is_hidden,
 		"password": password
 	}
 
@@ -247,6 +252,9 @@ function saveAccesspoint() {
 		}
 		$( ".result" ).html( data );
 	}, 'json');
+	
+
+	updateStatus();
 	
 }
 
@@ -296,6 +304,9 @@ function saveVPN() {
 		}
 		$( ".result" ).html( data );
 	}, 'json');
+	
+
+	updateStatus();
 	
 }
 

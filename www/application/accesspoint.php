@@ -28,6 +28,7 @@ if ($postdata) {
 	
 	$ssid = $postdata['ssid'];
 	$password = $postdata['password'];
+	$is_hidden = $postdata['is_hidden'];
 	
 	
 	$continue = true;
@@ -51,6 +52,13 @@ if ($postdata) {
 	if ($continue) {
 		`sudo ../../scripts/accesspoint/disable.sh`;
 		`sudo ../../scripts/accesspoint/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
+
+		$hidden_value = 0;
+		if ($is_hidden) {
+			$hidden_value = 1;
+		}
+		`sudo ../../scripts/accesspoint/hidden.sh --hidden=$hidden_value`;
+		
 		`sudo ../../scripts/accesspoint/enable.sh`;
 		// give a response
 		$response = "";

@@ -12,8 +12,11 @@ function show_help {
 # http://stackoverflow.com/a/246523
 function list_connections {
 	local interface=$1
-	arp | awk '/'$interface'$/ {print $1,$3}' | sed 's/:[[:digit:]]\+$//'
+#	arp | awk '/'$interface'$/ {print $1,$3}' | sed 's/:[[:digit:]]\+$//'
+	# this looks for "(incomplete)" hardware addresses - moochers perhaps?
+	arp | awk '/'$interface'$/ {print $1,$2,$3}' | sed  's/ether //' | sed 's/ '$interface'$//' | sed 's/:[[:digit:]]\+$//'
 }
+
 
 
 

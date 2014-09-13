@@ -14,6 +14,7 @@ $wifi_on = intval(`../scripts/interface_exists.sh --interface=wlan0`);
 
 
 $accesspoint_ssid = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`;
+$accesspoint_hidden = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ignore_broadcast_ssid`;
 $accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
 
 
@@ -411,6 +412,12 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<input id="accesspoint_wifi_password" class="form-control" placeholder="password" value="<?= addslashes($accesspoint_password); ?>" type="password">
 
 					<div id="error-accesspoint_wifi_password" class="input-error">Not a valid password</div>
+				</div>
+				
+
+
+				<div class="input-group">
+					<label for="accesspoint_hidden"><input id="accesspoint_hidden" name="accesspoint_hidden" type="checkbox" value="1" <?php if ($accesspoint_hidden) {?>checked="true" <?php } ?>> Hide this access point</label>
 				</div>
 			</div>
 
