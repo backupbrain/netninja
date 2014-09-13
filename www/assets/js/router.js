@@ -165,6 +165,7 @@ function updateStatus() {
 				row.append(ip_cell);
 				$('#maccess_point_clients > tbody:last').append(row);
 			}
+			$("#access_point_clients").show();
 			
 			
 		} else if (result == "warning"){
