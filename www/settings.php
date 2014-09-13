@@ -177,7 +177,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 									<tr>
 										<td>MAC Address</td>
 										<td id="eth0_mac_value">loading...</td>
-									</tr>>
+									</tr>
 									<tr id="eth0_address" class="start_hidden">
 										<td>IP Address</td>
 										<td id="eth0_address_value">loading...</td>
