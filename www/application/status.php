@@ -117,8 +117,8 @@ foreach (array_keys($internal_interfaces) as $interface) {
 }
 
 $response = array(
-	"firmware_version" = $firmware_version,
-	"internet_connected" = $internet_connected,
+	"firmware_version" => $firmware_version,
+	"internet_connected" => $internet_connected,
 	"wan" => $external_interfaces,
 	"lan" => $internal_interfaces,
 	"services" => $services
