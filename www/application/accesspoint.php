@@ -53,8 +53,8 @@ if ($postdata) {
 		`sudo ../../scripts/accesspoint/disable.sh`;
 		`sudo ../../scripts/accesspoint/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
 
-		$scrubbed_hidden_value = escapeshellar("false");
-		if ($is_hidden) {
+		$scrubbed_hidden_value = escapeshellarg("false");
+		if ($is_hidden == "true") {
 			$scrubbed_hidden_value = escapeshellarg("true");
 		}
 		`sudo ../../scripts/accesspoint/hidden.sh --hidden=$scrubbed_hidden_value`;
