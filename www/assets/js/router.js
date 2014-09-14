@@ -246,6 +246,9 @@ function saveInternet() {
 		if (result == "success") {
 			success["internet"] = true;
 			//notify_success(data);
+			if (!changes["vpn"]) {
+				saveVPN();
+			}
 		} else if (result == "warning"){
 			notify_warning(data);
 		} else {
@@ -254,9 +257,6 @@ function saveInternet() {
 		}
 		$( ".result" ).html( data );		
 
-		if (!changes["vpn"]) {
-			saveVPN();
-		}
 	}, 'json');
 	
 	
