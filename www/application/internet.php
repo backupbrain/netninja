@@ -7,7 +7,7 @@ $source = "internet";
 $internal_interface="wlan1";
 $external_interface="eth0";
 
-$allowed_encryptions = array("udp", "tcp");
+$allowed_encryptions = array("wpa", "wep", "none");
 
 $authorized = true;
 
