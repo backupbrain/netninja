@@ -20,6 +20,9 @@ if ($_POST) {
 
 if ($postdata) {
 	
+
+	$original_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
+	
 	if (!check_login()) {
 		$authorized = false;
 		$formErrors["unauthorized"] = true;
@@ -85,6 +88,10 @@ if ($postdata) {
 			$continue = false;
 		}
 
+		if (!$original_ca_cert and !$ca_cert) {
+			$formErrors['vpn_ca_cert'] = true;
+			$continue = false;
+		}
 		if (!$username and !$password and !$ca_cert) {
 			$formErrors['vpn_ca_cert'] = true;
 			$continue = false;
@@ -98,9 +105,12 @@ if ($postdata) {
 
 			`sudo ../../scripts/vpn/set_settings.sh --server=$scrubbed_server --port=$scrubbed_port --proto=$scrubbed_protocol`;
 			
-			`sudo ../../scripts/vpn/set_auth_settings.sh --username=$scrubbed_username --password=$scrubbed_password`;
-			
-			`sudo ../../scripts/vpn/set_ca_cert.sh --ca_cert=$scrubbed_ca_cert`;
+			if ($username and $password) {
+				`sudo ../../scripts/vpn/set_auth_settings.sh --username=$scrubbed_username --password=$scrubbed_password`;
+			}
+			if ($ca_cert) {
+				`sudo ../../scripts/vpn/set_ca_cert.sh --ca_cert=$scrubbed_ca_cert`;
+			}
 			
 			`sudo ../../scripts/vpn/enable.sh --interface=$internal_interface`;
 
