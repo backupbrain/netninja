@@ -254,7 +254,7 @@ function saveInternet() {
 		}
 		$( ".result" ).html( data );		
 
-		if (changes["vpn"]) {
+		if (!changes["vpn"]) {
 			saveVPN();
 		}
 	}, 'json');
