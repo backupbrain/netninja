@@ -7,7 +7,7 @@ $source = "accesspoint";
 $internal_interface="wlan1";
 $external_interface="eth0";
 
-$allowed_protocols = array("udp", "tcp");
+$allowed_protocols = array("udp", "tcp","none");
 
 $authorized = true;
 

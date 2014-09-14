@@ -228,12 +228,14 @@ function saveInternet() {
 	wifi_enabled = $("#wifi_enabled").is(":checked");
 	ssid = $("#client_wifi_ssid").val();
 	password = $("#client_wifi_password").val();
+	encryption = $("#wifi_encryption").val();
 	
 
 	formdata = {
 		"wifi_enabled": wifi_enabled,
 		"ssid": ssid,
-		"password": password
+		"password": password,
+		"encryption": encryption
 	}
 
 	post_url = "application/internet.php";

@@ -7,6 +7,8 @@ $source = "internet";
 $internal_interface="wlan1";
 $external_interface="eth0";
 
+$allowed_encryptions = array("udp", "tcp");
+
 $authorized = true;
 
 $postdata = null;
@@ -32,6 +34,9 @@ if ($postdata) {
 	$wifi_enabled = $postdata['wifi_enabled'];
 	$ssid = $postdata['ssid'];
 	$password = $postdata['password'];
+	$encryption = $postdata['encryption'];
+	
+	
 	
 	// we have to remove the last newline character
 	$old_ssid = rtrim(`../../scripts/wifi_client/get_ssid.sh`, "\n");
@@ -54,12 +59,19 @@ if ($postdata) {
 			$continue = false;
 		}
 		
+		
+		if (!in_array($encryption, $allowed_encryptions)) {
+			$formErrors["wifi_encryption"] = true;
+			$continue = false;
+		}
+		
 		$scrubbed_ssid = escapeshellarg($ssid);
 		$scrubbed_password = escapeshellarg($password);
+		$scrubbed_encryption = escapeshellarg($encryption);
 		
 		if ($continue) {
 			`sudo ../../scripts/wifi_client/disable.sh`;
-			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
+			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password --encryption=$scrubbed_encryption`;
 			`sudo ../../scripts/wifi_client/enable.sh`;
 			
 			
