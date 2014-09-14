@@ -426,7 +426,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						  </ul>
 						</div>
 						
-						<input id="wifi_encryption" class="form-control" placeholder="TCP or UDP"  value="<?= addslashes($wifi_encryption); ?>" type="hidden">
+						<input id="wifi_encryption" class="form-control" placeholder="WPA, WEP, or None"  value="<?= addslashes($wifi_encryption); ?>" type="hidden">
 
 						<div id="error-vpn_protocol" class="input-error">Invalid protocol</div>
 					</div>
