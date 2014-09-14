@@ -11,7 +11,7 @@ encryption=""
 
 function show_help {
 	local me=`basename $0`
-	echo 'Usage: '$me' --ssid="<ACCESS POINT NAME>" --passphrase="<ACCESS POINT PASSWORD>" --encryption=None/WEP/WPA'
+	echo 'Usage: '$me' --ssid="<ACCESS POINT NAME>" --passphrase="<ACCESS POINT PASSWORD>" --encryption=none/wep/wpa'
 }
 
 for i in "$@"

@@ -245,7 +245,7 @@ function saveInternet() {
 		result = data.result
 		if (result == "success") {
 			success["internet"] = true;
-			notify_success(data);
+			//notify_success(data);
 		} else if (result == "warning"){
 			notify_warning(data);
 		} else {
