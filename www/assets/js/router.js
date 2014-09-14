@@ -252,8 +252,11 @@ function saveInternet() {
 			success["internet"] = false;
 			notify_error(data);
 		}
-		$( ".result" ).html( data );
-		updateStatus();
+		$( ".result" ).html( data );		
+
+		if (changes["vpn"]) {
+			saveVPN();
+		}
 	}, 'json');
 	
 	
