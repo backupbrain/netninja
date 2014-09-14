@@ -416,7 +416,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<div class="input-group">
 						<div class="dropdown">
 						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-						    <span id="vpn_protocol_text"><?php if ($vpn_protocol) { echo(strtoupper(htmlentities($vpn_protocol))); } else { ?>Protocol<?php } ?></span>
+						    <span id="wifi_encryption_text"><?php if ($vpn_protocol) { echo(strtoupper(htmlentities($vpn_protocol))); } else { ?>Protocol<?php } ?></span>
 						    <span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -426,7 +426,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 						  </ul>
 						</div>
 						
-						<input id="vpn_protocol" class="form-control" placeholder="TCP or UDP"  value="<?= addslashes($vpn_protocol); ?>" type="hidden">
+						<input id="wifi_encryption" class="form-control" placeholder="TCP or UDP"  value="<?= addslashes($vpn_protocol); ?>" type="hidden">
 
 						<div id="error-vpn_protocol" class="input-error">Invalid protocol</div>
 					</div>

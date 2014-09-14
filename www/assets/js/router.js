@@ -84,6 +84,25 @@ $( document ).ready(function() {
 	});
 	
 	
+	$("#wifi_encryption_wpa").click(function(event) {
+		value = 'wpa';
+		$("#wifi_encryption_text").text(value.toUpperCase());
+		$("#wifi_encryption").val(value);
+	});
+	
+	$("#wifi_encryption_wep").click(function(event) {
+		value = 'wep';
+		$("#wifi_encryption_text").text(value.toUpperCase());
+		$("#wifi_encryption").val(value);
+	});
+	
+	$("#wifi_encryption_none").click(function(event) {
+		value = 'none';
+		$("#wifi_encryption_text").text(value.toUpperCase());
+		$("#wifi_encryption").val(value);
+	});
+	
+	
 	// know which section changed
 	$(".tab-pane").find("input,textarea").click(function() {
 		key = $(this).closest(".tab-pane").attr('id').substring("tab-".length);
