@@ -10,7 +10,7 @@ $wifi_ssid =  `../scripts/wifi_client/get_ssid.sh`;
 $wifi_password =  ""; //`../scripts/wifi_client/get_password.sh`;
 
 $wifi_on = intval(`../scripts/interface_exists.sh --interface=wlan0`);
-
+$wifi_encryption = `../scripts/wifi_client/sense_encryption.sh`;
 
 
 $accesspoint_ssid = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`;
@@ -416,7 +416,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<div class="input-group">
 						<div class="dropdown">
 						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-						    <span id="wifi_encryption_text"><?php if ($vpn_protocol) { echo(strtoupper(htmlentities($vpn_protocol))); } else { ?>Protocol<?php } ?></span>
+						    <span id="wifi_encryption_text"><?php if ($wifi_encryption) { echo(strtoupper(htmlentities($wifi_encryption))); } else { ?>Protocol<?php } ?></span>
 						    <span class="caret"></span>
 						  </button>
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
