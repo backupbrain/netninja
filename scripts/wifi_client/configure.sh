@@ -5,6 +5,7 @@ test "$(whoami)" != 'root' && (echo you are using a non-privileged account; exit
 
 OPTIND=1 # reset in case getopts have been used previously in the shell
 
+readonly config_file=/etc/network/interfaces
 ssid="snoopsafe"
 passphrase=""
 encryption=""
@@ -44,12 +45,12 @@ shift $((OPTIND-1))
 #echo "ssid=$ssid, wpa_passsphrase=$wpa_passphrase', Leftovers: $@"
 
 # replace the ssd and the passphrase in the hostapd config file
-sed -i "s/\(wpa-ssid \).*\$/\1\"$ssid\"/" /etc/network/interfaces
-sed -i "s/\(wpa-psk \).*\$/\1\"$passphrase\"/" /etc/network/interfaces
+sed -i "s/\(wpa-ssid \).*\$/\1\"$ssid\"/" $config_file
+sed -i "s/\(wpa-psk \).*\$/\1\"$passphrase\"/" $config_file
 
 
-sed -i "s/\(wpa-essid \).*\$/\1\"$ssid\"/" /etc/network/interfaces
-sed -i "s/\(wpa-key \).*\$/\1\"$passphrase\"/" /etc/network/interfaces
+sed -i "s/\(wpa-essid \).*\$/\1\"$ssid\"/" $config_file
+sed -i "s/\(wpa-key \).*\$/\1\"$passphrase\"/" $config_file
 
 if [ "$encryption" = "WPA" ]; then
 	sed -i -e 's/^\twireless-essid/\#\twireless-essid/g' $config_file
