@@ -34,7 +34,7 @@ if ($postdata) {
 	$wifi_enabled = $postdata['wifi_enabled'];
 	$ssid = $postdata['ssid'];
 	$password = $postdata['password'];
-	$encryption = $postdata['encryption'];
+	$encryption = strtolower($postdata['encryption']);
 	
 	
 	
