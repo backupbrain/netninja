@@ -42,6 +42,9 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
+# lowercase the encryption
+encryption=`echo $encryption | tr '[A-Z]' '[a-z']`
+
 #echo "ssid=$ssid, wpa_passsphrase=$wpa_passphrase', Leftovers: $@"
 
 # replace the ssd and the passphrase in the hostapd config file
@@ -52,14 +55,14 @@ sed -i "s/\(wpa-psk \).*\$/\1\"$passphrase\"/" $config_file
 sed -i "s/\(wpa-essid \).*\$/\1\"$ssid\"/" $config_file
 sed -i "s/\(wpa-key \).*\$/\1\"$passphrase\"/" $config_file
 
-if [ "$encryption" = "WPA" ]; then
+if [[ $encryption = "wpa" ]]; then
 	sed -i -e 's/^\twireless-essid/\#\twireless-essid/g' $config_file
 	sed -i -e 's/^\twireless-key/\#\twireless-key/g' $config_file
 	sed -i -e 's/^\twireless-mode/\#\twireless-mode/g' $config_file
 
 	sed -i -e 's/^\#\twpa-ssid/\twpa-ssid/g' $config_file
 	sed -i -e 's/^\#\twpa-psk/\twpa-psk/g' $config_file
-elif [ "$encryption" = "WEP" ]; then
+elif [[ $encryption = "wep" ]]; then
 	sed -i -e 's/^\twpa-ssid/\#\twpa-ssid/g' $config_file
 	sed -i -e 's/^\twpa-psk/\#\twpa-psk/g' $config_file
 	sed -i -e 's/^\twireless-mode/\#\twireless-mode/g' $config_file

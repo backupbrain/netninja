@@ -43,7 +43,6 @@ function local_routing {
 	iptables -t nat -A POSTROUTING -o $external_interface -j MASQUERADE
 	iptables -A FORWARD -i $external_interface -o $local_interface -m state --state RELATED,ESTABLISHED -j ACCEPT
 	iptables -A FORWARD -i $local_interface -o $external_interface -j ACCEPT
-
 	sh -c "iptables-save > /etc/iptables.ipv4.nat"
 	
 	service ntp restart
