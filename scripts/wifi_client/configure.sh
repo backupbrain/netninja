@@ -67,8 +67,8 @@ elif [[ $encryption = "wep" ]]; then
 	sed -i -e 's/^\twpa-psk/\#\twpa-psk/g' $config_file
 	sed -i -e 's/^\twireless-mode/\#\twireless-mode/g' $config_file
 
-	sed -i -e 's/^\#\twpa-essid/\twpa-essid/g' $config_file
-	sed -i -e 's/^\#\twpa-key/\twpa-key/g' $config_file
+	sed -i -e 's/^\#\twireless-essid/\twpa-essid/g' $config_file
+	sed -i -e 's/^\#\twireless-key/\twpa-key/g' $config_file
 else
 	sed -i -e 's/^\twpa-ssid/\#\twpa-ssid/g' $config_file
 	sed -i -e 's/^\twpa-psk/\#\twpa-psk/g' $config_file
