@@ -52,18 +52,19 @@ if ($postdata) {
 			$continue = false;
 		}
 
-
-		// is the new password empty?
-		if (!$password) {
-			$formErrors["client_wifi_password"] = true;
-			$continue = false;
-		}
-		
 		
 		if (!in_array($encryption, $allowed_encryptions)) {
 			$formErrors["wifi_encryption"] = true;
 			$continue = false;
 		}
+		
+
+		// Do we need a password?
+		if (($encryption == none) && !$password) {
+			$formErrors["client_wifi_password"] = true;
+			$continue = false;
+		}
+		
 		
 		$scrubbed_ssid = escapeshellarg($ssid);
 		$scrubbed_password = escapeshellarg($password);
