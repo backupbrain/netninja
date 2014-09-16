@@ -60,7 +60,7 @@ if ($postdata) {
 		
 
 		// Do we need a password?
-		if (($encryption == none) && !$password) {
+		if (($encryption != "none") && !$password) {
 			$formErrors["client_wifi_password"] = true;
 			$continue = false;
 		}
