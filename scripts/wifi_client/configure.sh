@@ -52,8 +52,8 @@ sed -i "s/\(wpa-ssid \).*\$/\1\"$ssid\"/" $config_file
 sed -i "s/\(wpa-psk \).*\$/\1\"$passphrase\"/" $config_file
 
 
-sed -i "s/\(wireless-essid \).*\$/\1\"$ssid\"/" $config_file
-sed -i "s/\(wireless-key \).*\$/\1\"$passphrase\"/" $config_file
+sed -i "s/\(wireless-essid \).*\$/\1$ssid/" $config_file
+sed -i "s/\(wireless-key \).*\$/\1s:$passphrase/" $config_file
 
 if [[ $encryption = "wpa" ]]; then
 	sed -i -e 's/^\twireless-essid/\#\twireless-essid/g' $config_file
