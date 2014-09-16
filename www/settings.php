@@ -9,7 +9,7 @@ $firmware_version = get_setting('application/'.$version_file, 'version');
 $wifi_ssid =  `../scripts/wifi_client/get_ssid.sh`;
 $wifi_password =  ""; //`../scripts/wifi_client/get_password.sh`;
 
-$wifi_on = intval(`../scripts/interface_exists.sh --interface=wlan0`);
+$wifi_on = intval(`../scripts/wifi_client/sense_is_enabled.sh --interface=wlan0`);
 $wifi_encryption = `../scripts/wifi_client/sense_encryption.sh`;
 
 
