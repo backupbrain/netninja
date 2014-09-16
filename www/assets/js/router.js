@@ -88,18 +88,21 @@ $( document ).ready(function() {
 		value = 'wpa';
 		$("#wifi_encryption_text").text(value.toUpperCase());
 		$("#wifi_encryption").val(value);
+		$("#client_wifi_password").show(50);
 	});
 	
 	$("#wifi_encryption_wep").click(function(event) {
 		value = 'wep';
 		$("#wifi_encryption_text").text(value.toUpperCase());
 		$("#wifi_encryption").val(value);
+		$("#client_wifi_password").show(50);
 	});
 	
 	$("#wifi_encryption_none").click(function(event) {
 		value = 'none';
 		$("#wifi_encryption_text").text(value.toUpperCase());
 		$("#wifi_encryption").val(value);
+		$("#client_wifi_password").hide(50);
 	});
 	
 	
