@@ -8,7 +8,7 @@ wpa_enabled=`sed -n '/^[[:space:]]wpa-ssid "\(.*\)"$/s//\1/p' < $config_file`
 
 wep_enabled=`sed -n '/^[[:space:]]wireless-key \(.*\)$/s//\1/p' < $config_file`
 
-open_enabled=`sed -n '/^[[:space:]]wireless-mode "\(.*\)"$/s//\1/p' < $config_file`
+open_enabled=`sed -n '/^[[:space:]]wireless-mode \(.*\)$/s//\1/p' < $config_file`
 
 
 if [[ ! -z "$wpa_enabled" ]];then
