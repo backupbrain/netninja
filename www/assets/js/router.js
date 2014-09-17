@@ -217,7 +217,7 @@ function savesettings() {
 	if (changes["accesspoint"]) {
 		saveAccesspoint();
 	}
-	if (changes["vpn"]) {
+	if (changes["vpn"] && !changes["internet"]) {
 		saveVPN();
 	}
 	if (changes["security"]) {
