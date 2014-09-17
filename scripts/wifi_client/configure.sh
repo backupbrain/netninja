@@ -53,7 +53,6 @@ sed -i "s/\(wpa-psk \).*\$/\1\"$passphrase\"/" $config_file
 
 
 sed -i "s/\(wireless-essid \).*\$/\1$ssid/" $config_file
-sed -i "s/\(wireless-key \).*\$/\1s:$passphrase/" $config_file
 
 if [[ $encryption = "wpa" ]]; then
 	sed -i -e 's/^\twireless-essid/\#\twireless-essid/g' $config_file
@@ -63,6 +62,18 @@ if [[ $encryption = "wpa" ]]; then
 	sed -i -e 's/^\#\twpa-ssid/\twpa-ssid/g' $config_file
 	sed -i -e 's/^\#\twpa-psk/\twpa-psk/g' $config_file
 elif [[ $encryption = "wep" ]]; then
+	
+	# let's figure out if this is a WEP key or a WEP password (5 or 13 characters)
+	keysize=${#passphrase}
+	
+	if [ $keysize -eq 5 ] || [ $keysize == 13 ]; then
+		# this is a WEP password
+		sed -i "s/\(wireless-key \).*\$/\1s:$passphrase/" $config_file
+	else
+		# this is a WEP key
+		sed -i "s/\(wireless-key \).*\$/\1$passphrase/" $config_file
+	fi
+	
 	sed -i -e 's/^\twpa-ssid/\#\twpa-ssid/g' $config_file
 	sed -i -e 's/^\twpa-psk/\#\twpa-psk/g' $config_file
 	sed -i -e 's/^\twireless-mode/\#\twireless-mode/g' $config_file
