@@ -132,7 +132,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<h2>Status</h2>
 
 
-				<div class="wrapper">
+				<div class="wrapper container-fluid">
 					<div class="content-main col-xs-6 col-md-4">
 						<h3>Internet</h3>
 						
