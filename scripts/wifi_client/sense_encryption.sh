@@ -13,10 +13,10 @@ open_enabled=`sed -n '/^[[:space:]]wireless-mode "\(.*\)"$/s//\1/p' < $config_fi
 
 if [[ ! -z "$wpa_enabled" ]];then
 	wireless_encryption="wpa"
-elif [[ ! -z "$wep_enabled" ]]; then
-	wireless_encryption="wep"
-else
+elif [[ ! -z "$open_enabled" ]]; then
 	wireless_encryption="none"
+else
+	wireless_encryption="wep"
 fi
 
 echo $wireless_encryption
