@@ -8,7 +8,7 @@ wep_config_setting="wireless-essid"
 config_result=`sed -n '/^[[:space:]]'$wpa_config_setting' "\(.*\)"$/s//\1/p' < $config_file`
 
 
-if [[ ! -z "$config_result" ]];then
+if [[ -z "$config_result" ]];then
 	config_result=`sed -n '/^[[:space:]]*'$wep_config_setting' \(.*\)$/s//\1/p' < $config_file`
 fi
 
