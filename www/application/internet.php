@@ -95,7 +95,7 @@ if ($postdata) {
 
 			} else {
 				// determine our working network interface
-				$wlan0_exists = intval(`sudo ../scripts/interface_exists --interface=wlan0`);
+				$wlan0_exists = intval(`sudo ../scripts/interface_exists.sh --interface=wlan0`);
 				$external_interface="eth0";
 				if ($wlan0_exists) {
 					$external_interface="wlan0";
