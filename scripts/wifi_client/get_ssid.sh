@@ -9,7 +9,7 @@ config_result=`sed -n '/^[[:space:]]'$wpa_config_setting' "\(.*\)"$/s//\1/p' < $
 
 
 if [[ ! -z "$config_result" ]];then
-	config_result=`sed -n '/^[[:space:]]'$wep_config_setting' "\(.*\)"$/s//\1/p' < $config_file`
+	config_result=`sed -n '/^[[:space:]]*'$wep_config_setting' \(.*\)$/s//\1/p' < $config_file`
 fi
 
 echo $config_result
