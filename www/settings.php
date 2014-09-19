@@ -475,11 +475,6 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				
 
 
-				<div class="input-group">
-					<label for="accesspoint_hidden"><input id="accesspoint_hidden" name="accesspoint_hidden" type="checkbox" value="1" <?php if ($accesspoint_hidden) {?>checked="true" <?php } ?>> Hide this access point</label>
-				</div>
-			</div>
-			
 
 				<div class="input-group">
 					<div class="dropdown">
@@ -506,6 +501,15 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 					<div id="error-accesspoint_channel" class="input-error">Invalid channel</div>
 				</div>
+				
+				
+
+				<div class="input-group">
+					<label for="accesspoint_hidden"><input id="accesspoint_hidden" name="accesspoint_hidden" type="checkbox" value="1" <?php if ($accesspoint_hidden) {?>checked="true" <?php } ?>> Hide this access point</label>
+				</div>
+				
+				
+				
 			</div>
 
 
