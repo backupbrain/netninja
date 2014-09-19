@@ -4,7 +4,7 @@ require_once("common.php");
 
 $source = "version";
 
-$latest_version_file = 'https://github.com/backupbrain/netninja';
+$latest_version_file = 'https://raw.githubusercontent.com/backupbrain/netninja/master/version';
 
 $authorized = true;
 
