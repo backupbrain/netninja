@@ -2,9 +2,9 @@
 
 require_once("common.php");
 
-$source = "version";
-
-$latest_version_file = 'https://raw.githubusercontent.com/backupbrain/netninja/master/version';
+$source = "checkversion";
+	
+$latest_version_file = get_setting($version_file, 'versionfile');
 
 $authorized = true;
 
