@@ -479,7 +479,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<div class="input-group">
 					<div class="dropdown">
 					  <button class="btn btn-default dropdown-toggle" type="button" id="accesspoint_channel_dropdown" data-toggle="dropdown">
-					    <span id="accesspoint_channel_text"><?php if ($accesspoint_channel) { echo(strtoupper(htmlentities($accesspoint_channel))); } else { ?>Channel<?php } ?></span>
+					    <span id="accesspoint_channel_text"><?php if ($accesspoint_channel) { echo('Channel '.intval($accesspoint_channel)); } else { ?>Channel<?php } ?></span>
 					    <span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
