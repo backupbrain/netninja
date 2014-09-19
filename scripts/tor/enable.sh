@@ -2,11 +2,12 @@
 
 OPTIND=1 # reset in case getopts have been used previously in the shell
 
+external_interface=eth0
 local_interface=wlan1
 
 function show_help {
         local me=`basename $0`
-        echo 'Usage: '$me' --interface=<inet interface>'
+        echo 'Usage: '$me' --external_interface=<inet interface> --local_interface=<inet interface>'
 }
 
 
@@ -37,10 +38,11 @@ function start_tor {
 
 # set up tor routing
 function tor_routing {
-	local local_interface=$1
-	sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
-	sudo iptables -A FORWARD -i tun0 -o $local_interface -m state --state RELATED,ESTABLISHED -j ACCEPT
-	sudo iptables -A FORWARD -i $local_interface -o tun0 -j ACCEPT
+	local external_interface=$1
+	local local_interface=$2
+	sudo iptables -t nat -A POSTROUTING -o $external_interface -j MASQUERADE
+	sudo iptables -A FORWARD -i $external_interface -o $local_interface -m state --state RELATED,ESTABLISHED -j ACCEPT
+	sudo iptables -A FORWARD -i $local_interface -o $external_interface -j ACCEPT
 
 	sh -c "iptables-save > /etc/iptables.ipv4.nat"
 	
@@ -55,6 +57,9 @@ do
                 show_help
                 exit 0
                 ;;
+	--external_interface=*)
+		external_interface="${i#*=}"
+		shift
 	--local_interface=*)
 		local_interface="${i#*=}"
 		shift
@@ -69,5 +74,5 @@ shift $((OPTIND-1))
 stop_vpn
 clear_routing
 start_tor
-tor_routing $local_interface
+tor_routing $external_interface $local_interface
 
