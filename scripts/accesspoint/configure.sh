@@ -2,8 +2,8 @@
 
 OPTIND=1 # reset in case getopts have been used previously in the shell
 
-CHANNEL_MAX = 11
-CHANNEL_MIN = 1
+CHANNEL_MAX=11
+CHANNEL_MIN=1
 
 ssid="snoopsafe"
 wpa_passphrase="change this password"
