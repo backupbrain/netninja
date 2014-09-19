@@ -4,6 +4,9 @@ require_once("common.php");
 
 $source = "accesspoint";
 
+$channelmin = 1;
+$channelmax = 11;
+
 $authorized = true;
 
 $postdata = null;
@@ -29,6 +32,9 @@ if ($postdata) {
 	$ssid = $postdata['ssid'];
 	$password = $postdata['password'];
 	$is_hidden = $postdata['is_hidden'];
+	$channel = intval($postdata['channel']);
+	if ($channel < $channelmin) $channel = $channelmin;
+	if ($channel > $channelmax) $channel = $channelmax;
 	
 	
 	$continue = true;
@@ -48,10 +54,11 @@ if ($postdata) {
 	
 	$scrubbed_ssid = escapeshellarg($ssid);
 	$scrubbed_password = escapeshellarg($password);
+	$scrubbed_channel = escapeshellarg($channel);
 	
 	if ($continue) {
 		`sudo ../../scripts/accesspoint/disable.sh`;
-		`sudo ../../scripts/accesspoint/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password`;
+		`sudo ../../scripts/accesspoint/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password --channel=$scrubbed_channel`;
 
 		$scrubbed_hidden_value = escapeshellarg("false");
 		if ($is_hidden == "true") {
