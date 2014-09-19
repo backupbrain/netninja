@@ -328,12 +328,14 @@ function saveAccesspoint() {
 	ssid = $("#accesspoint_wifi_ssid").val();
 	is_hidden = $("#accesspoint_hidden").is(":checked");
 	password = $("#accesspoint_wifi_password").val();
+	password = $("#accesspoint_channel").val();
 	
 
 	formdata = {
 		"ssid": ssid,
 		"is_hidden": is_hidden,
-		"password": password
+		"password": password,
+		"channel": channel
 	}
 
 	post_url = "application/accesspoint.php";
