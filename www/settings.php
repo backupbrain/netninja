@@ -488,17 +488,17 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					    <span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_1" href="#">1</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_2" href="#">2</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_3" href="#">3</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_4" href="#">4</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_5" href="#">5</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_6" href="#">6</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_7" href="#">7</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_8" href="#">8</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_9" href="#">9</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_10" href="#">10</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_11" href="#">11</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_1" href="#">Channel 1</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_2" href="#">Channel 2</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_3" href="#">Channel 3</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_4" href="#">Channel 4</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_5" href="#">Channel 5</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_6" href="#">Channel 6</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_7" href="#">Channel 7</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_8" href="#">Channel 8</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_9" href="#">Channel 9</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_10" href="#">Channel 10</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_11" href="#">Channel 11</a></li>
 					  </ul>
 					</div>
 					
