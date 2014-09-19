@@ -109,57 +109,57 @@ $( document ).ready(function() {
 	
 	$("#accesspoint_channel_select_1").click(function(event) {
 		value = 1;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_2").click(function(event) {
 		value = 2;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_3").click(function(event) {
 		value = 3;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_4").click(function(event) {
 		value = 4;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_5").click(function(event) {
 		value = 5;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_6").click(function(event) {
 		value = 6;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_7").click(function(event) {
 		value = 7;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_8").click(function(event) {
 		value = 8;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_9").click(function(event) {
 		value = 9;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_10").click(function(event) {
 		value = 10;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	$("#accesspoint_channel_select_11").click(function(event) {
 		value = 11;
-		$("#accesspoint_channel_text").text(value);
+		$("#accesspoint_channel_text").text('Channel '+value);
 		$("#accesspoint_channel").val(value);
 	});
 	
