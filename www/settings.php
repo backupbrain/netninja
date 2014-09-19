@@ -16,6 +16,7 @@ $wifi_encryption = `../scripts/wifi_client/sense_encryption.sh`;
 $accesspoint_ssid = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ssid`;
 $accesspoint_hidden = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=ignore_broadcast_ssid`;
 $accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
+$accesspoint_channel = intval(rtrim(`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=channel`,"\n"));
 
 
 
@@ -476,6 +477,34 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 				<div class="input-group">
 					<label for="accesspoint_hidden"><input id="accesspoint_hidden" name="accesspoint_hidden" type="checkbox" value="1" <?php if ($accesspoint_hidden) {?>checked="true" <?php } ?>> Hide this access point</label>
+				</div>
+			</div>
+			
+
+				<div class="input-group">
+					<div class="dropdown">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="accesspoint_channel_dropdown" data-toggle="dropdown">
+					    <span id="accesspoint_channel_text"><?php if ($accesspoint_channel) { echo(strtoupper(htmlentities($accesspoint_channel))); } else { ?>Channel<?php } ?></span>
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_1" href="#">1</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_2" href="#">2</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_3" href="#">3</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_4" href="#">4</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_5" href="#">5</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_6" href="#">6</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_7" href="#">7</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_8" href="#">8</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_9" href="#">9</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_10" href="#">10</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" id="accesspoint_channel_select_11" href="#">11</a></li>
+					  </ul>
+					</div>
+					
+					<input id="accesspoint_channel" class="form-control" placeholder="1"  value="<?= addslashes($accesspoint_channel); ?>" type="hidden">
+
+					<div id="error-accesspoint_channel" class="input-error">Invalid channel</div>
 				</div>
 			</div>
 
