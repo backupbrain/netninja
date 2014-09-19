@@ -328,7 +328,7 @@ function saveAccesspoint() {
 	ssid = $("#accesspoint_wifi_ssid").val();
 	is_hidden = $("#accesspoint_hidden").is(":checked");
 	password = $("#accesspoint_wifi_password").val();
-	password = $("#accesspoint_channel").val();
+	channel = $("#accesspoint_channel").val();
 	
 
 	formdata = {
