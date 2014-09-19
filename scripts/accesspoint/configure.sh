@@ -40,7 +40,7 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-if [ "$channel" -lt $CHANNEL_MIN ] || [ "$channel" -gt $CHANNEL_MAX ]; then
+if [ $channel -lt $CHANNEL_MIN ] || [ $channel -gt $CHANNEL_MAX ]; then
 	channel=1
 fi
 
