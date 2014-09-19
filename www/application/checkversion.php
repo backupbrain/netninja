@@ -28,10 +28,10 @@ function compareVersions($version1, $version2) {
 	foreach ($version1 as $key=>$version1_value) {
 		$version1_value = intval($version1_value);
 		$version2_value = intval($version2[$key]);
-		if ($version1_value < $version2_value) {
+		if ($version1_value > $version2_value) {
 			return -1;
 		}
-		if ($version1_value > $version2_value) {
+		if ($version1_value < $version2_value) {
 			return 1;
 		}
 	}
