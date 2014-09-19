@@ -34,7 +34,7 @@ if ($latest_version) {
 $version_compare = compareVersions($current_version, $latest_version);
 
 	
-$upgrade_os= rtrim(`../../scripts/upgrade/checkos.sh`,"\n");
+$upgrade_os= rtrim(`sudo ../../scripts/upgrade/checkos.sh`,"\n");
 
 if ($upgrade_router) {
 	`sudo ../../scripts/upgrade/router.sh`;
@@ -42,27 +42,7 @@ if ($upgrade_router) {
 if ($upgrade_os) {
 	`sudo ../../scripts/upgrade/os.sh`;
 }
-$current_version = get_setting($version_file, 'version');
-$latest_version = file_get_contents($latest_version_file);
 
-if (!$latest_version) {
-	$errors['internet'] = true;
-	$response = array(
-		"errors" => $errors
-	);
-	error_response($response);
-	return;
-}
-
-$version_compare = compareVersions($current_version, $latest_version);
-
-$response = array(
-	'current_version' => $current_version,
-	'latest_version' => $latest_version,
-	'version_compare' => $version_compare
-);
-
-
-success_response($response);
+$response = "";
 
 ?>
