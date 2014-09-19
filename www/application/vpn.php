@@ -52,7 +52,15 @@ if ($postdata) {
 
 	if ($service == "tor") {
 		`sudo ../../scripts/disable_vpn_tor.sh`;
-		`sudo ../../scripts/tor/enable.sh --interface=$internal_interface`;
+		
+		// determine our working network interface
+		$wlan0_exists = intval(`sudo ../../scripts/interface_exists.sh --interface=wlan0`);
+		$external_interface="eth0";
+		if ($wlan0_exists) {
+			$external_interface="wlan0";
+		}
+		
+		`sudo ../../scripts/tor/enable.sh --external_interface=$external_interface --local_interface=$internal_interface`;
 		$response = "";
 		success_response($response);
 	} else if ($service == "private") {
