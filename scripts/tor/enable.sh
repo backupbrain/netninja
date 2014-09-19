@@ -60,6 +60,7 @@ do
 	--external_interface=*)
 		external_interface="${i#*=}"
 		shift
+		;;
 	--local_interface=*)
 		local_interface="${i#*=}"
 		shift
