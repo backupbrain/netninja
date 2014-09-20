@@ -22,6 +22,7 @@ if ($postdata) {
 	
 
 	$original_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
+	$old_password = `../scripts/vpn/get_auth_setting.sh --setting=password`;
 	
 	if (!check_login()) {
 		$authorized = false;
@@ -88,12 +89,18 @@ if ($postdata) {
 		}
 		
 		if ($username and !$password) {
-			$formErrors['vpn_password'] = true;
-			$continue = false;
+			// presume we are keeping the old password
+			$password = $old_password;
+			$scrubbed_password = escapeshellarg($password);
 		}
 		if (!$username and $password) {
 			$formErrors['vpn_username'] = true;
 			$continue = false;
+		}
+		
+		if ($original_ca_cert and !$ca_cert) {
+			$ca_cert = $original_ca_cert;
+			$scrubbed_ca_cert = escapeshellar($ca_cert);
 		}
 
 		if (!$original_ca_cert and !$ca_cert) {

@@ -43,6 +43,7 @@ if ($upgrade_os) {
 	`sudo ../../scripts/upgrade/os.sh`;
 }
 
-$response = "";
+$response = array("version"=>$latest_version);
+success_response($response);
 
 ?>

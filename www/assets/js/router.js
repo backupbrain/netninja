@@ -163,10 +163,21 @@ $( document ).ready(function() {
 		$("#accesspoint_channel").val(value);
 	});
 	
+	$("#checkforupdates").click(function(e) {
+		e.preventDefault();
+		checkUpdates();
+	});
+	
+	$("#installupdates").click(function(e) {
+		e.preventDefault();
+		installUpdates();
+	});
+	
 	// know which section changed
 	$(".tab-pane").find("input,textarea").click(function() {
 		key = $(this).closest(".tab-pane").attr('id').substring("tab-".length);
-		changes[key] =true;
+		console.log("changes made in "+key);
+		changes[key] = true;
 	});
 	
 	$('#navtab a[href="#status"]').tab('show') // Select tab by name
@@ -452,12 +463,54 @@ function savePassword() {
 	
 }
 
+function checkUpdates() {
+	var url = "application/checkversion.php";
+	formdata = "";
+	$.post(url, formdata, function( data ) {
+		result = data.result
+		if (result == "success") {
+			response = result.response;
+			if (response["version_compare"] > 0) {
+				$("#updatesavailable").show(50);
+			} else {
+				$("#updatesavailable").hide(50);
+			}
+		} else {
+			notify_error(data);
+		}
+	}, 'json');
+	
+}
+
+function installUpdates() {
+	var url = "applications/upgrade.php";
+	formdata = "";
+	$.post(url, formdata, function( data ) {
+		result = data.result
+		if (result == "success") {
+			response = result.response;
+			success["upgrade"] = true;
+			$("#settings_router_version").text(response['version']);
+			notify_success(data);
+			
+			updateStatus();
+		} else if (result == "warning"){
+			notify_warning(data);
+		} else {
+			success["security"] = false;
+			notify_error(data);
+		}
+		$( ".result" ).html( data );
+	}, 'json');
+}
+
 function notify_error(data) {
 	$("#pendingchange_banner").hide();
 	$("#error_banner").show();
 	if (data.response.length) {
+		console.log(data);
 		formErrors = data.response.errors
-		if (formErrors["unauthorized"] == true) {
+		if (formErrors.unauthorized == true) {
 			document.location.href = "/";
 			return;
 		}

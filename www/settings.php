@@ -536,6 +536,8 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<label for="vpntype-private"><input id="vpntype-private"
 					name="vpntype" type="radio" value="private" <?php if (in_array("vpn", $services)) { ?>checked="true"<?php } ?>> Private
 					VPN</label>
+
+					<p class="note">VPN creates a secure connection to one server on the internet. It is private and moderately fast.</p>
 				</div>
 
 
@@ -597,15 +599,24 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<div class="input-group">
 					<label for="vpntype-tor"><input id="vpntype-tor" name=
 					"vpntype" type="radio" value="tor" <?php if (in_array("tor", $services)) { ?>checked="true"<?php } ?>> TOR</label>
+					<p class="note">TOR distributes your internet connection around the world.  It is slow and anonymous but not secure.</p>
 				</div>
 			</div>
 
 
 			<div class="tab-pane" id="tab-security">
 				<h2>Security Settings:</h2>
+				
+				<div id="updates">
+					<div>Router Version: 
+					<span id="settings_router_version"><?php echo(htmlentities($firmware_version)); ?></span></div>
+					<div><button class="btn btn-success" type="button" id="checkforupdates">Check for updates</button>
+					<div id="updatesavailable" style="start_hidden">Updates are available <button class="btn btn-success" type="button" id="installupdates">Install updates</button></div>
+				</div>
 
 
 				<p>Change your router web administration password.</p>
+				<p class="note">A good password is at least 6 characters and includes an uppercase, lowercase, and number</p>
 
 				<form action="#" method="post" id="security-form">
 					<div class="input-group">
