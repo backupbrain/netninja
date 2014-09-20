@@ -470,7 +470,7 @@ function checkUpdates() {
 		result = data.result
 		if (result == "success") {
 			response = result.response;
-			if (response["version_compare"] > 0) {
+			if (response.version_compare > 0) {
 				$("#updatesavailable").show(50);
 			} else {
 				$("#updatesavailable").hide(50);
