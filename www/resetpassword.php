@@ -1,6 +1,6 @@
 <?php
 
-require_once("application/resetpassword.php");
+//require_once("application/resetpassword.php");
 
 ?>
 <!DOCTYPE html>
