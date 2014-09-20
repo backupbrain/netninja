@@ -510,7 +510,7 @@ function installUpdates() {
 function notify_error(data) {
 	$("#pendingchange_banner").hide();
 	$("#error_banner").show();
-	if (data.response.length) {
+	if (data.response) {
 		console.log(data);
 		formErrors = data.response.errors;
 		if (formErrors.unauthorized == true) {
