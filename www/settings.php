@@ -517,11 +517,6 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<h2>VPN Settings</h2>
 
 
-				<p>A VPN will tunnel all your internet traffic to another
-				computer, making it difficult to see what web sites you are
-				surfing.</p>
-
-
 				<p>TOR tunnels each individual packet of traffic randomly to a
 				different VPN.</p>
 
@@ -529,6 +524,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<div class="input-group">
 					<label for="vpntype-none"><input id="vpntype-none" name=
 					"vpntype" type="radio" value="none" <?php if (count($services) <= 0) { ?>checked="true"<?php } ?>> No VPN</label>
+					<p class="note">This is a direct connection to the internet.  It is the fastest option but does not protect your privacy or anonymity</p>
 				</div>
 
 
