@@ -607,6 +607,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 			<div class="tab-pane" id="tab-security">
 				<h2>Security Settings:</h2>
 				
+				<h3>Updates</h3>
 				<div id="updates">
 					<div>Router Version: 
 					<span id="settings_router_version"><?php echo(htmlentities($firmware_version)); ?></span> <button class="btn btn-success" type="button" id="checkforupdates">Check for updates</button></div>
@@ -614,7 +615,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<div id="noupdatesavailable" class="start_hidden">No updates are available at this time.</div>
 				</div>
 
-
+				<h3>Administration Password</h3>
 				<p>Change your router web administration password.</p>
 				<p class="note">A good password is at least 6 characters and includes an uppercase, lowercase, and number</p>
 
