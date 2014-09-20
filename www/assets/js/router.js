@@ -412,6 +412,8 @@ function saveVPN() {
 		} else if (result == "warning"){
 			notify_warning(data);
 		} else {
+			console.log("error!");
+			console.log(data);
 			success["vpn"] = false;
 			notify_error(data);
 		}
@@ -510,7 +512,7 @@ function notify_error(data) {
 	$("#error_banner").show();
 	if (data.response.length) {
 		console.log(data);
-		formErrors = data.response.errors
+		formErrors = data.response.errors;
 		if (formErrors.unauthorized == true) {
 			document.location.href = "/";
 			return;
