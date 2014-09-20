@@ -524,7 +524,7 @@ function notify_success(data) {
 	ready = true;
 	// figure out which changes were made
 	for (index in changes) {
-		if (success[index] != changes[index]) {
+		if ((changes[index] == true) && (success[index] == false)) {
 			ready = false;
 		}
 	}
