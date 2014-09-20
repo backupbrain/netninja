@@ -611,6 +611,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<div>Router Version: 
 					<span id="settings_router_version"><?php echo(htmlentities($firmware_version)); ?></span> <button class="btn btn-success" type="button" id="checkforupdates">Check for updates</button></div>
 					<div id="updatesavailable" class="start_hidden">Updates are available <button class="btn btn-success" type="button" id="installupdates">Install updates</button></div>
+					<div id="noupdatesavailable" class="start_hidden">No updates are available at this time.</div>
 				</div>
 
 

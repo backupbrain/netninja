@@ -469,11 +469,12 @@ function checkUpdates() {
 	$.post(url, formdata, function( data ) {
 		result = data.result
 		if (result == "success") {
-			response = result.response;
-			if (response.version_compare > 0) {
+			if (data.response.version_compare > 0) {
+				$("#noupdatesavailable").hide(50);
 				$("#updatesavailable").show(50);
 			} else {
 				$("#updatesavailable").hide(50);
+				$("#noupdatesavailable").show(50);
 			}
 		} else {
 			notify_error(data);
