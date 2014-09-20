@@ -6,9 +6,9 @@
 }
 .input-error {
 	color: #633;
-	padding: 5px 0px;
+	padding: 10px 15px;
 	display: none;
-	background: #a66;
+	background: #e88;
 }
 
 #error_banner {
