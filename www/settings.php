@@ -87,7 +87,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 			data-toggle="collapse" type="button"><span class="sr-only">Toggle
 			navigation</span> <span class="icon-bar"></span> <span class=
 			"icon-bar"></span> <span class="icon-bar"></span></button>
-			<a class="navbar-brand" href="/">Router Admin</a>
+			<span class="navbar-brand">Router Admin</a>
 		</div>
 
 
