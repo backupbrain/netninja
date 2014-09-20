@@ -8,5 +8,5 @@ $settings = array(
 	'password' => hash_password($factory_password, 'admin')
 );
 
-save_settings($settings, $password_file);
+save_settings($settings, 'application/'.$password_file);
 ?>
