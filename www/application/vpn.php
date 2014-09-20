@@ -100,7 +100,7 @@ if ($postdata) {
 		
 		if ($original_ca_cert and !$ca_cert) {
 			$ca_cert = $original_ca_cert;
-			$scrubbed_ca_cert = escapeshellar($ca_cert);
+			$scrubbed_ca_cert = escapeshellarg($ca_cert);
 		}
 
 		if (!$original_ca_cert and !$ca_cert) {
