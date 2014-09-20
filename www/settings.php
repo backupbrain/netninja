@@ -461,14 +461,15 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 				<div class="input-group">
 					<input id="accesspoint_wifi_ssid" class="form-control" placeholder="SSID/Network Name" value="<?= addslashes($accesspoint_ssid); ?>"
-					type="text">
+					type="text" maxlength="31" />
 
 					<div id="error-accesspoint_wifi_ssid" class="input-error">Not a valid network name</div>
+					<p class="note">Your access point name must be less than 32 characters</p>
 				</div>
 
 
 				<div class="input-group">
-					<input id="accesspoint_wifi_password" class="form-control" placeholder="password" value="<?= addslashes($accesspoint_password); ?>" type="password">
+					<input id="accesspoint_wifi_password" class="form-control" placeholder="password" value="<?= addslashes($accesspoint_password); ?>" type="password" maxlength="63" />
 
 					<div id="error-accesspoint_wifi_password" class="input-error">Not a valid password</div>
 					<p class="note">Your WiFi password must be between 8 and 63 characters long.</p>
