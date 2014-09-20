@@ -21,8 +21,8 @@ if ($_POST) {
 if ($postdata) {
 	
 
-	$original_ca_cert = rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
-	$old_password = `../scripts/vpn/get_auth_setting.sh --setting=password`;
+	$original_ca_cert = rtrim(`../../scripts/vpn/get_ca_cert.sh`,"\n");
+	$old_password = `../../scripts/vpn/get_auth_setting.sh --setting=password`;
 	
 	if (!check_login()) {
 		$authorized = false;
