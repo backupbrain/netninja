@@ -471,6 +471,8 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					<input id="accesspoint_wifi_password" class="form-control" placeholder="password" value="<?= addslashes($accesspoint_password); ?>" type="password">
 
 					<div id="error-accesspoint_wifi_password" class="input-error">Not a valid password</div>
+					<p class="note">Your WiFi password must be between 8 and 63 characters long.</p>
+					<p class="note">A good password contains uppercase and lowercase characters, and numbers.</p>
 				</div>
 				
 
