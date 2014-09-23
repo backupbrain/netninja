@@ -283,9 +283,14 @@ function savesettings() {
 	if (changes["accesspoint"]) {
 		saveAccesspoint();
 	}
+	if (changes["vpn"]) {
+		saveInternet();
+	}
+	/*
 	if (changes["vpn"] && !changes["internet"]) {
 		saveVPN();
 	}
+	/* */
 	if (changes["security"]) {
 		savePassword();
 	}
