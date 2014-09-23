@@ -14,4 +14,4 @@ echo "" > $ad_file
 
 # remove zone list
 
-service bind restart
+service bind9 restart
