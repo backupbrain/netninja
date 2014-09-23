@@ -18,7 +18,7 @@ $accesspoint_hidden = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.
 $accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
 $accesspoint_channel = intval(rtrim(`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=channel`,"\n"));
 
-
+$adblocking_enabled = intval(`../scripts/service_exists.sh --service=bind9`);
 
 $is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
 $is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
@@ -524,7 +524,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 				<div class="input-group">
 					<label for="adblocking-enabled"><input id="adblocking-enabled" name=
-					"vpntype" type="radio" value="none" <?php if (count($services) <= 0) { ?>checked="true"<?php } ?>> Enable Ad-blocking</label>
+					"vpntype" type="checkbox" value="none" <?php if ($adblocking_enabled) { ?>checked="true"<?php } ?>> Enable Ad-blocking</label>
 					<p class="note">When enabled, most web ad-content will be silently swallowed.</p>
 				</div>
 
