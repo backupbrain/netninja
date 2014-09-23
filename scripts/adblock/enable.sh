@@ -15,7 +15,7 @@ if [ ! -f $cron_script ]; then
 fi
 
 
-sed -i -e "s/\(option domain-name-servers \).*\$/\1192.168.10.1;/" $dhcp_file
+#sed -i -e "s/\(option domain-name-servers \).*\$/\1192.168.10.1;/" $dhcp_file
 
-update-rc.d bind9 enable
-$source_script
+#update-rc.d bind9 enable
+#$source_script
