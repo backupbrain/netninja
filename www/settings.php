@@ -104,7 +104,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 					Point</a>
 				</li>
 				<li>
-					<a data-toggle="tab" href="#tab-vpn">VPN</a>
+					<a data-toggle="tab" href="#tab-vpn">Privacy</a>
 				</li>
 				<li>
 					<a data-toggle="tab" href="#tab-security">Security</a>
