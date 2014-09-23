@@ -5,7 +5,7 @@ pixelserv_ip="192.168.10.1"
 ad_file="/etc/bind/named.conf.local"
 temp_ad_file="/tmp/named.conf.local"
  
-curl $ad_list_url | awk '{print "zone \"" $0 "\" { type master; file \"dummy-block\"; };"}' > $temp_ad_file
+curl $ad_list_url | awk '{print "zone \"" $0 "\" { type master; file \"zones/dummy-block.com.zone\"; };"}' > $temp_ad_file
  
 if [ -f "$temp_ad_file" ]
 then
