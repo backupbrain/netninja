@@ -169,12 +169,14 @@ if ($postdata) {
 	} else {
 		`sudo ../../scripts/adblock/disable.sh`;	
 	}
+	/*
 	// restart dhcp server to force client to re-connect when
 	// adblock status changes
 	if ($old_is_adblocking_enabled != $is_adblocking_enabled) {
 		`sudo ../../scripts/accesspoint/disable.sh`;		
 		`sudo ../../scripts/accesspoint/enable.sh`;
 	}
+	/* */
 		
 }
 

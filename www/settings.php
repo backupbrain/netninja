@@ -545,7 +545,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<div class="input-group">
 					<label for="adblocking-enabled"><input id="adblocking-enabled" name=
 					"vpntype" type="checkbox" value="none" <?php if ($adblocking_enabled) { ?>checked="true"<?php } ?>> Enable Ad-blocking</label>
-					<p class="note">When enabled, most web ad-content will be silently swallowed.</p>
+					<p class="note">If you change this setting you will have to re-connect to this router to see the changes on your computer.</p>
 				</div>
 
 
