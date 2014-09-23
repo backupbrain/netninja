@@ -280,8 +280,11 @@ function savesettings() {
 	if (changes["internet"]) {
 		saveInternet();
 	}
-	if (changes["accesspoint"]) {
+	if (changes["accesspoint"] || changes['vpn']) {
 		saveAccesspoint();
+	}
+	if (changes["vpn"]) {
+		saveVPN();
 	}
 	/*
 	if (changes["vpn"] && !changes["internet"]) {
