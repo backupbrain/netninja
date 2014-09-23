@@ -18,6 +18,15 @@ require_once("application/index.php");
 	<link href="assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css"  rel="stylesheet">
 	<script src="assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 	<script src="assets/js/router.js"></script>
+	<style id="antiClickjack">body{display:none !important;}</style>
+	<script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+	</script>
 </head>
 
 <body>
