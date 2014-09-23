@@ -2,8 +2,8 @@
  
 ad_list_url="http://pgl.yoyo.org/adservers/serverlist.php?hostformat=bind&showintro=0&mimetype=plaintext"
 pixelserv_ip="192.168.10.1"
-ad_file="/etc/bind/bind.adbolck.conf"
-temp_ad_file="/etc/bind/bind.adblock.conf.tmp"
+ad_file="/etc/bind/named.conf.local"
+temp_ad_file="/tmp/named.conf.local"
  
 curl $ad_list_url | awk '{print "zone \"" $0 "\" { type master; file \"dummy-block\"; };"}' > $temp_ad_file
  
