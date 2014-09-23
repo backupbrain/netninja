@@ -52,7 +52,6 @@ if ($postdata) {
 	
 	
 	if ($is_adblocking_enabled) {
-		`sudo ../../scripts/adblock/update-adblock.sh`;
 		`sudo ../../scripts/adblock/enable.sh`;
 	} else {
 		`sudo ../../scripts/adblock/disable.sh`;	

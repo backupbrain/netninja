@@ -1,7 +1,6 @@
 #!/bin/bash
  
 ad_list_url="http://pgl.yoyo.org/adservers/serverlist.php?hostformat=bind&showintro=0&mimetype=plaintext"
-pixelserv_ip="192.168.10.1"
 ad_file="/etc/bind/named.conf.local"
 temp_ad_file="/tmp/named.conf.local"
  
