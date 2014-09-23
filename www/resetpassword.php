@@ -18,6 +18,26 @@ require_once("application/resetpassword.php");
 	<link href="assets/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css"  rel="stylesheet">
 	<script src="assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 	<script src="assets/js/router.js"></script>
+	<style id="antiClickjack">body{display:none !important;}</style>
+	<script type="text/javascript">
+   if (self === top) {
+       var antiClickjack = document.getElementById("antiClickjack");
+       antiClickjack.parentNode.removeChild(antiClickjack);
+   } else {
+       top.location = self.location;
+   }
+	</script>
+	<?php
+	// prevent BREACH attack
+	$randomData = mcrypt_create_iv(25, MCRYPT_DEV_URANDOM);
+	echo "<!--"
+	    . substr(
+	        base64_encode($randomData), 
+	        0, 
+	        ord($randomData[24]) % 32
+	    ) 
+	    . "-->";
+	?>
 </head>
 
 <body>
