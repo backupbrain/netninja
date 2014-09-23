@@ -23,6 +23,7 @@ if ($postdata) {
 
 	$original_ca_cert = rtrim(`../../scripts/vpn/get_ca_cert.sh`,"\n");
 	$old_password = `../../scripts/vpn/get_auth_setting.sh --setting=password`;
+	$original_client_cert = rtrim(`../../scripts/vpn/get_client_cert.sh`,"\n");
 	
 	if (!check_login()) {
 		$authorized = false;
@@ -44,6 +45,8 @@ if ($postdata) {
 	$username = $postdata['username'];
 	$password = $postdata['password'];
 	$ca_cert = $postdata['ca_cert'];
+	$client_cert = $postdata['client_cert'];
+	$client_key = $postdata['client_key'];
 	
 	
 	$continue = true;
@@ -118,6 +121,9 @@ if ($postdata) {
 			$continue = false;
 		}
 		
+		$scrubbed_client_cert = escapeshellarg($client_cert);
+		$scrubbed_client_key = escapeshellarg($client_key);
+		
 		if ($continue) {
 			`sudo ../../scripts/disable_vpn_tor.sh`;
 			
@@ -132,6 +138,8 @@ if ($postdata) {
 			if ($ca_cert) {
 				`sudo ../../scripts/vpn/set_ca_cert.sh --ca_cert=$scrubbed_ca_cert`;
 			}
+			
+			//`sudo ../../scripts/vpn/set_client_cert.sh --client_cert=$scrubbed_client_cert -client_key=$scrubbed_client_key`;
 			
 			`sudo ../../scripts/vpn/enable.sh --interface=$internal_interface`;
 
