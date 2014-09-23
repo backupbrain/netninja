@@ -11,4 +11,5 @@ if [ ! -f $cron_script ]; then
 	ln -sf $source_script $cron_script
 fi
 
+update-rc.d bind9 enable
 $source_script

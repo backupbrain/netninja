@@ -14,4 +14,5 @@ echo "" > $ad_file
 
 # remove zone list
 
-service bind9 restart
+service bind9 stop
+update-rc.d bind9 disable
