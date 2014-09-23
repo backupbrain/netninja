@@ -517,11 +517,22 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 
 
 			<div class="tab-pane" id="tab-vpn">
-				<h2>VPN Settings</h2>
+				<h2>Privacy</h2>
+
+				<h3>Ad Blocking</h3>
+				<p>Ad-blocking can be used to speed up your internet connection, remove annoying advertising content, prevent advertisers from tracking your surfing habits, black malware.</p>
+
+				<div class="input-group">
+					<label for="adblocking-enabled"><input id="adblocking-enabled" name=
+					"vpntype" type="radio" value="none" <?php if (count($services) <= 0) { ?>checked="true"<?php } ?>> Enable Ad-blocking</label>
+					<p class="note">When enabled, most web ad-content will be silently swallowed.</p>
+				</div>
 
 
-				<p>TOR tunnels each individual packet of traffic randomly to a
-				different VPN.</p>
+				<h3>VPN Settings</h3>
+				
+				
+				<p>A VPN connects you to a type of router on the internet, adding security to public networks such as WiFi hotspots.</p>
 
 
 				<div class="input-group">
@@ -598,7 +609,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 				<div class="input-group">
 					<label for="vpntype-tor"><input id="vpntype-tor" name=
 					"vpntype" type="radio" value="tor" <?php if (in_array("tor", $services)) { ?>checked="true"<?php } ?>> TOR</label>
-					<p class="note">TOR distributes your internet connection around the world.  It is slow and anonymous but not secure.</p>
+					<p class="note">TOR distributes your internet connection around the world.  It is slow and anonymous but not secure.  To use TOR, you will also need to download the <a href="https://www.torproject.org/">TOR browser</a>.</p>
 				</div>
 			</div>
 

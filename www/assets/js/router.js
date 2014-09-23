@@ -173,6 +173,7 @@ $( document ).ready(function() {
 		installUpdates();
 	});
 	
+	
 	// know which section changed
 	$(".tab-pane").find("input,textarea").click(function() {
 		key = $(this).closest(".tab-pane").attr('id').substring("tab-".length);
@@ -372,6 +373,7 @@ function saveVPN() {
 	notify_pending_change();
 	is_tor_on = $("#vpntype-tor").is(":checked");
 	is_vpn_on = $("#vpntype-private").is(":checked");
+	is_adblocking_enabled = $("#adblocking-enabled").is(":checked");
 	
 	service = "none";
 	if (is_tor_on) {
@@ -389,6 +391,7 @@ function saveVPN() {
 	ca_cert = $("#vpn_ca_cert").val();
 
 	formdata = {
+		"adblock" : is_adblocking_enabled,
 		"service": service,
 		"server": server,
 		"port": port,

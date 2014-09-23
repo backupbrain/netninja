@@ -37,6 +37,7 @@ if ($postdata) {
 	
 	$service = $postdata['service'];
 	
+	$is_adblocking_enabled = intval($postdata['adblock']);
 	$server = $postdata['server'];
 	$port = intval($postdata['port']);
 	$protocol = $postdata['protocol'];
@@ -50,6 +51,12 @@ if ($postdata) {
 	
 	
 	
+	if ($is_adblocking_enabled) {
+		`sudo ../../scripts/adblock/update-adblock.sh`;
+		`sudo ../../scripts/adblock/enable.sh`;
+	} else {
+		`sudo ../../scripts/adblock/disable.sh`;	
+	}
 
 	if ($service == "tor") {
 		`sudo ../../scripts/disable_vpn_tor.sh`;
