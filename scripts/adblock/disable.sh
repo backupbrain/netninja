@@ -7,7 +7,9 @@ ad_file="/etc/bind/named.conf.local"
 
 cron_script=/etc/cron.weekly/$update_script
 
-rm $cron_script
+if [ -f $cron_script ]; then
+	rm $cron_script
+fi
 echo "" > $ad_file
 
 # remove zone list
