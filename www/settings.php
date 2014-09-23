@@ -18,7 +18,7 @@ $accesspoint_hidden = `../scripts/report_setting.sh --file=/etc/hostapd/hostapd.
 $accesspoint_password = ""; //`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=wpa_passphrase`;
 $accesspoint_channel = intval(rtrim(`../scripts/report_setting.sh --file=/etc/hostapd/hostapd.conf --setting=channel`,"\n"));
 
-$adblocking_enabled = intval(`../scripts/service_exists.sh --service=named`);
+$adblocking_enabled = intval(`../scripts/adblock/is_enabled.sh`);
 
 $is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);
 $is_vpn_running = intval(`../scripts/service_exists.sh --service=openvpn`);
