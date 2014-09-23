@@ -16,4 +16,4 @@ else
 	exit
 fi
  
-service bind restart
+service bind9 restart
