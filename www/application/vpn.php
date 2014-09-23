@@ -54,18 +54,6 @@ if ($postdata) {
 	$formErrors = array();
 	
 	
-	
-	if ($is_adblocking_enabled) {
-		`sudo ../../scripts/adblock/enable.sh`;
-	} else {
-		`sudo ../../scripts/adblock/disable.sh`;	
-	}
-	// restart dhcp server to force client to re-connect when
-	// adblock status changes
-	if ($old_is_adblocking_enabled != $is_adblocking_enabled) {
-		`sudo ../../scripts/accesspoint/disable.sh`;		
-		`sudo ../../scripts/accesspoint/enable.sh`;
-	}
 
 	if ($service == "tor") {
 		`sudo ../../scripts/disable_vpn_tor.sh`;
@@ -174,6 +162,19 @@ if ($postdata) {
 		success_response($response);	
 	}
 
+	
+	
+	if ($is_adblocking_enabled) {
+		`sudo ../../scripts/adblock/enable.sh`;
+	} else {
+		`sudo ../../scripts/adblock/disable.sh`;	
+	}
+	// restart dhcp server to force client to re-connect when
+	// adblock status changes
+	if ($old_is_adblocking_enabled != $is_adblocking_enabled) {
+		`sudo ../../scripts/accesspoint/disable.sh`;		
+		`sudo ../../scripts/accesspoint/enable.sh`;
+	}
 		
 }
 
