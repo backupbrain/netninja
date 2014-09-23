@@ -15,7 +15,7 @@ fi
 echo "" > $ad_file
 
 
-sed -i -e "s/\(option domain-name-servers \).*\$/\18.8.8.8 8.8.4.4/" $dhcp_file
+sed -i -e "s/\(option domain-name-servers \).*\$/\18.8.8.8 8.8.4.4;/" $dhcp_file
 
 
 # remove zone list
