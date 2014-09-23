@@ -76,7 +76,7 @@ $vpn_ca_cert = ""; //rtrim(`../scripts/vpn/get_ca_cert.sh`,"\n");
 	?>
 </head>
 
-<body>
+<body id="settings">
 	<a class="sr-only sr-only-focusable" href="#content">Skip to main
 	content</a> <!-- Static navbar -->
 

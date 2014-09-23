@@ -182,7 +182,9 @@ $( document ).ready(function() {
 	
 	$('#navtab a[href="#status"]').tab('show') // Select tab by name
 	
-	updateStatus();
+	if (document.body.id == "settings") {
+		updateStatus();
+	}
 });
 
 
