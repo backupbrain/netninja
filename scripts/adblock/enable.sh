@@ -1,7 +1,7 @@
 #!/bin/bash
 
 update_script=update-adblock.sh
-cwd=`DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"`
+cwd=$( cd "$( dirname "$0" )" && pwd )
 echo $cwd
 source_script=$cwd/$update_script
 
