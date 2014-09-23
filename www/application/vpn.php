@@ -37,7 +37,7 @@ if ($postdata) {
 	
 	$service = $postdata['service'];
 	
-	$is_adblocking_enabled = $postdata['adblock'];
+	$is_adblocking_enabled = filter_var($postdata['adblock'], FILTER_VALIDATE_BOOLEAN);
 	$server = $postdata['server'];
 	$port = intval($postdata['port']);
 	$protocol = $postdata['protocol'];
