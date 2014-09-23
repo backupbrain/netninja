@@ -8,4 +8,4 @@ cron_script=/etc/cron.weekly/$update_script
 
 ln -s $source_script $cron_script
 
-$update_script
+$source_script
