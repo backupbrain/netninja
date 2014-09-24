@@ -17,4 +17,4 @@ fi
 #sed -i -e "s/\(option domain-name-servers \).*\$/\1192.168.10.1;/" $dhcp_file
 
 #update-rc.d bind9 enable
-#$source_script
+$source_script
