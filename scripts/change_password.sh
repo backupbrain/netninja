@@ -3,7 +3,7 @@
 
 OPTIND=1 # reset in case getopts have been used previously in the shell
 
-username=pi
+username=admin
 password=changethispassword
 
 function show_help {
