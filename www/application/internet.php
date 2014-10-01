@@ -60,11 +60,12 @@ if ($postdata) {
 		
 
 		// Do we need a password?
-		if (($encryption != "none") && !$password) {
-			$formErrors["client_wifi_password"] = true;
-			$continue = false;
+		if ($wifi_enabled) {
+			if (($encryption != "none") && !$password) {
+				$formErrors["client_wifi_password"] = true;
+				$continue = false;
+			}
 		}
-		
 		
 		$scrubbed_ssid = escapeshellarg($ssid);
 		$scrubbed_password = escapeshellarg($password);
@@ -72,9 +73,10 @@ if ($postdata) {
 		
 		if ($continue) {
 			`sudo ../../scripts/wifi_client/disable.sh`;
-			`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password --encryption=$scrubbed_encryption`;
-			`sudo ../../scripts/wifi_client/enable.sh`;
-			
+			if ($wifi_enabled) {
+				`sudo ../../scripts/wifi_client/configure.sh --ssid=$scrubbed_ssid --passphrase=$scrubbed_password --encryption=$scrubbed_encryption`;
+				`sudo ../../scripts/wifi_client/enable.sh`;
+			}
 			
 
 			$is_tor_running = intval(`../scripts/service_exists.sh --service=tor`);

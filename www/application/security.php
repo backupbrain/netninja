@@ -53,11 +53,14 @@ if ($postdata) {
 
 	// if everything is ok, change the password
 	if ($authorized) {
+		$scrubbed_newPassword = escapeshellarg($newPassword);
+		`sudo ../../scripts/change_password.sh --password=$scrubbed_newPassword`;
 		$hashed_newPassword = hash_password($newPassword, $username);
 		$settings = array(
 			"username" => get_setting($password_file, "username"),
 			"password" => $hashed_newPassword
 		);
+
 		save_settings($settings, $password_file);
 
 		// log the user in
