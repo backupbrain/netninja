@@ -31,7 +31,7 @@ if ($postdata) {
 		return;
 	}
 	
-	$wifi_enabled = $postdata['wifi_enabled'];
+	$wifi_enabled = filter_var($postdata['wifi_enabled'], FILTER_VALIDATE_BOOLEAN);
 	$ssid = $postdata['ssid'];
 	$password = $postdata['password'];
 	$encryption = strtolower(trim($postdata['encryption']));
