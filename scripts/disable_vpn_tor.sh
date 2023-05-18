@@ -30,7 +30,7 @@ function clear_routing {
 	iptables -t mangle -F
 	iptables -t mangle -X
 	iptables -P INPUT ACCEPT
-	iptables -P FORWARD ACCEPT
+	iptables -P BACKWARD ACCEPT
 	iptables -P OUTPUT ACCEPT
 }
 
